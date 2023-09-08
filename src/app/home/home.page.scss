@@ -1,0 +1,77 @@
+#container {
+  text-align: center;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+
+  color: #8c8c8c;
+
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}
+ion-toolbar{
+  background-color: var(--ion-color-cortesito);
+}
+
+ion-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Usamos el 100vh para ocupar toda la altura de la ventana */
+}
+
+.btn {
+  width: 200px; /* Ancho deseado */
+  height: 80px; /* Altura deseada */
+  font-size: 24px; /* Tamaño de fuente deseado */
+  margin: 10px auto; /* Espacio entre los botones y centrado horizontalmente */
+  margin-top: 90px; /* Ajusta el margen superior según la distancia que desees */
+  margin-left: 50px; /* Ajusta el margen izquierdo para mover los botones hacia la derecha */
+}
+ion-header {
+  background-color: var(--ion-color-cortesito);
+}
+
+ion-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Estilos para los botones */
+ion-button.btn {
+  width: 200px;
+  height: 80px;
+  font-size: 24px;
+  margin: 10px auto; /* Centrar horizontalmente */
+  align-self: center; /* Centrar verticalmente */
+  text-align: center; /* Centrar el texto horizontalmente en el botón */
+  white-space: normal; /* Permitir que el texto se ajuste automáticamente al tamaño del botón */
+  overflow: hidden; /* Evitar que el texto se desborde si es muy largo */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.skeleton{
+  height: 300px;
+}

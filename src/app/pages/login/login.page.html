@@ -1,0 +1,22 @@
+<div>
+  <ion-card> 
+    <ion-card-content>
+      <ion-item>
+        <ion-label>Email:</ion-label>
+        <ion-input [(ngModel)]="email" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Contraseña:</ion-label>
+        <ion-input [(ngModel)]="contrasena" type="password"></ion-input>
+      </ion-item>
+    </ion-card-content>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="login()" expand="full">Acceder</ion-button>
+      </ion-col>
+      <a [routerLink]="['/registro']" >Aun no tienes contraseña? Registrate!</a>
+      <a [routerLink]="['/resetpass']" >Olvidaste tu contraseña? Recuperala!</a>
+    </ion-row>
+  </ion-card>
+</div>
+

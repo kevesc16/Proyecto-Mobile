@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>disponibilidad</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Disponibilidad</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ng-container *ngIf="!loading">
+  <ion-item>
+    <ion-label position="floating">Patente</ion-label>
+    <ion-input type="text" [(ngModel)]="patente"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label position="floating">Destino</ion-label>
+    <ion-input type="text" [(ngModel)]="destino"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Cantidad de Pasajeros</ion-label>
+    <ion-input type="text" [(ngModel)]="Cpasajeros"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Conductor</ion-label>
+    <ion-input type="text" [(ngModel)]="conductor"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Costo</ion-label>
+    <ion-input type="text" [(ngModel)]="costo"></ion-input>
+  </ion-item>
+  <ion-button  expand="full" class="btn"(click)="alerta()">Subir</ion-button>
+  </ng-container>
+  <ng-container *ngIf="loading">
+    <div class="box-skeleton" *ngFor="let skeleton of [1]">
+      <ion-skeleton-text
+        class="skeleton"
+        [animated]="true"
+        style="width: 80%"
+      ></ion-skeleton-text>
+    </div>
+    </ng-container>
+ 
+
+</ion-content>

@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-button (click)="logOut()" slot="end">
+      <ion-icon name="log-out-outline"></ion-icon>
+    </ion-button>
+    <ion-title>menu</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  
+<ng-container *ngIf="!loading">
+  <ng-container *ngFor="let m of menuArray">
+    <ion-card [routerLink]="m.url" *ngIf="m.disabled" class="disabled">
+      <div class="box">
+        <ion-icon [name]="m.icono" style="font-size: 36px"></ion-icon>
+        <h3>{{m.titulo}}</h3>
+      </div>
+    </ion-card>
+
+    <ion-card [routerLink]="m.url" *ngIf="!m.disabled" class="enabled">
+      <div class="box">
+        <ion-icon [name]="m.icono" style="font-size: 36px"></ion-icon>
+        <h3>{{m.titulo}}</h3>
+      </div>
+    </ion-card>
+  </ng-container>
+</ng-container>
+
+  <ng-container *ngIf="loading">
+  <div class="box-skeleton" *ngFor="let skeleton of [1,2]">
+    <ion-skeleton-text
+      class="skeleton"
+      [animated]="true"
+      style="width: 80%"
+    ></ion-skeleton-text>
+  </div>
+  </ng-container>
+
+  <ion-button (click)="play()">Play</ion-button>
+  <ion-button (click)="pause()">Pause</ion-button>
+  <ion-button (click)="stop()">Stop</ion-button>
+</ion-content>
