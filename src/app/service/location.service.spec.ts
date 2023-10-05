@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { FireAuthService } from './fire-auth.service';
+import { LocationService } from './location.service';
 
-describe('FireAuthService', () => {
-  let service: FireAuthService;
+describe('LocationService', () => {
+  let service: LocationService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(FireAuthService);
+    service = TestBed.inject(LocationService);
   });
 
   it('should be created', () => {

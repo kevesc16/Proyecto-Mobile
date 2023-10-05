@@ -14,8 +14,12 @@
       <ion-col>
         <ion-button (click)="login()" expand="full">Acceder</ion-button>
       </ion-col>
-      <a [routerLink]="['/registro']" >Aun no tienes contraseña? Registrate!</a>
-      <a [routerLink]="['/resetpass']" >Olvidaste tu contraseña? Recuperala!</a>
+      <ion-col>
+        <ion-button [routerLink]="['/registro']" expand="full">Registrarse</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button [routerLink]="['/resetpass']" expand="full">Recuperar contraseña</ion-button>
+      </ion-col>
     </ion-row>
   </ion-card>
 </div>

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AlertController, LoadingController } from '@ionic/angular';
 
 @Injectable({
@@ -8,7 +9,8 @@ export class HelperService {
 
   constructor(
     private alertService:AlertController,
-    private loadingController:LoadingController
+    private loadingController:LoadingController,
+    private auth:AngularFireAuth
     
     ) { }
 
@@ -58,4 +60,15 @@ async showLoader(msg:string){
   await loader.present();
   return loader;
 }
+
+async changePassword(email: string): Promise<void> {
+  try {
+    return this.auth.sendPasswordResetEmail(email)
+    
+  } catch (error) {
+    console.error('Error updating password:', error);
+    // Mostrar un mensaje de error al usuario
+  }
+} 
+
 }

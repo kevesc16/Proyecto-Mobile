@@ -1,38 +1,31 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>resetpass</ion-title>
+    <ion-title>Recuperar Contraseña</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button>Back</ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Recuperar Clave</ion-title>
+      <ion-title size="large">Recuperar Contraseña</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-item>
+    <h3>Ingresa tu correo para cambiar tu contraseña</h3>
+  </ion-item>
   <ng-container *ngIf="!loading">
   <ion-item>
     <ion-label position="floating">Correo</ion-label>
-    <ion-input type="text" [(ngModel)]="correo"></ion-input>
+    <ion-input type="email" [(ngModel)]="correo"></ion-input>
   </ion-item>
 
-  <ion-item>
-    <ion-label position="floating">Confirmar correo</ion-label>
-    <ion-input type="text" [(ngModel)]="cCorreo"></ion-input>
-  </ion-item>
-  
-  <ion-item>
-    <ion-label position="floating">Nueva contraseña</ion-label>
-    <ion-input type="text" [(ngModel)]="nuevaCont"></ion-input>
-  </ion-item>
 
-  <ion-item>
-    <ion-label position="floating">Confirmar contraseña</ion-label>
-    <ion-input type="text" [(ngModel)]="repetirCont"></ion-input>
-  </ion-item>
   
   <ion-content>
-    <ion-button class="btn" (click)="conf()">Confirmar</ion-button>
+    <ion-button class="btn" (click)="conf()">enviar</ion-button>
   </ion-content>
   </ng-container>
   <ng-container *ngIf="loading">

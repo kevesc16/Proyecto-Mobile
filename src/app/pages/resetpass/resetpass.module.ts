@@ -13,7 +13,8 @@ import { ResetpassPage } from './resetpass.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    ResetpassPageRoutingModule
+    ResetpassPageRoutingModule,
+    
   ],
   declarations: [ResetpassPage]
 })
