@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
-import { AnimationController, IonCard } from '@ionic/angular';
+import { IonCard , AnimationController, MenuController} from '@ionic/angular';
 import type { Animation } from '@ionic/angular';
 import { Menu } from 'src/app/models/menu';
 import { HelperService } from 'src/app/service/-helper.service';
@@ -22,7 +23,9 @@ export class MenuPage implements OnInit, OnDestroy {
   constructor(
   private router: Router,
   private animationCtrl: AnimationController,
-  private helper:HelperService
+  private helper:HelperService,
+  private menuCtrl:MenuController,
+  private auth:AngularFireAuth
   ) {}
   simularCargaMenu =()=>
   this.loading= false;
@@ -92,10 +95,22 @@ play(){
     console.log('Abandonó la vista');
   }
 
-  logOut() {
-    this.router.navigateByUrl('login');
+ async logOut() {
+    var confirmar = await this.helper.showConfirm("Desea cerrar la sesión actual?","Confirmar","Cancelar");
+    if (confirmar == true) {
+      await this.auth.signOut();
+      await this.router.navigateByUrl("login");
+    }
   }
-
+  toggle(){
+    this.menuCtrl.toggle();
+  }
+  cerrarMenu(){
+    this.menuCtrl.close();
+  }
+  perfil(){
+    this.router.navigateByUrl('perfil'); 
+  }
   menuUno() {
     var parametroN1 = 123456;
     this.router.navigateByUrl(parametroN1 + '/menu-uno');

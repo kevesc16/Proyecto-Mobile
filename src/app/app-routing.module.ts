@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-
+import { AngularFireAuthGuard, redirectUnauthorizedTo } from '@angular/fire/compat/auth-guard';
+const redirectLLog =()=> redirectUnauthorizedTo(('/login'));
 const routes: Routes = [
   {
     path: 'home',
@@ -8,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'menu',
     pathMatch: 'full'
   },
   {
@@ -17,6 +18,7 @@ const routes: Routes = [
   },
   {
     path: 'menu',
+    canActivate:[AngularFireAuthGuard],data:{authGuardPipe:redirectLLog},
     loadChildren: () => import('./pages/menu/menu.module').then( m => m.MenuPageModule)
   },
   {
@@ -25,10 +27,12 @@ const routes: Routes = [
   },
   {
     path: 'disponibilidad',
+    canActivate:[AngularFireAuthGuard],data:{authGuardPipe:redirectLLog},
     loadChildren: () => import('./pages/disponibilidad/disponibilidad.module').then( m => m.DisponibilidadPageModule)
   },
   {
     path: 'formulario',
+    canActivate:[AngularFireAuthGuard],data:{authGuardPipe:redirectLLog},
     loadChildren: () => import('./pages/formulario/formulario.module').then( m => m.FormularioPageModule)
   },
   {
