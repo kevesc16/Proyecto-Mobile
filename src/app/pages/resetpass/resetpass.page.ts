@@ -28,7 +28,7 @@ loading:boolean= true;
     simularCargaMenu =()=>
     this.loading= false;
   ngOnInit() {
-    setTimeout(this.simularCargaMenu,5000);
+    setTimeout(this.simularCargaMenu,1500);
   }
   /*async conf(){
     let confirmar= await this.helper.showConfirm("Seguro que quiere que esta sea su nueva contraseña?","Shi","Ño")

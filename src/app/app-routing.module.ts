@@ -31,7 +31,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/disponibilidad/disponibilidad.module').then( m => m.DisponibilidadPageModule)
   },
   {
-    path: 'formulario',
+    path: 'menu/formulario',
     canActivate:[AngularFireAuthGuard],data:{authGuardPipe:redirectLLog},
     loadChildren: () => import('./pages/formulario/formulario.module').then( m => m.FormularioPageModule)
   },

@@ -1,6 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>disponibilidad</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button>Back</ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -15,7 +18,7 @@
     <ion-label position="floating">Patente</ion-label>
     <ion-input type="text" [(ngModel)]="patente"></ion-input>
   </ion-item>
-  
+
   <ion-item>
     <ion-label position="floating">Destino</ion-label>
     <ion-input type="text" [(ngModel)]="destino"></ion-input>
@@ -35,17 +38,17 @@
     <ion-label position="floating">Costo</ion-label>
     <ion-input type="text" [(ngModel)]="costo"></ion-input>
   </ion-item>
-  <ion-button  expand="full" class="btn"(click)="alerta()">Subir</ion-button>
+  <ion-button  expand="full" class="btn"(click)="alerta()"shape="round">Subir</ion-button>
   </ng-container>
   <ng-container *ngIf="loading">
     <div class="box-skeleton" *ngFor="let skeleton of [1]">
       <ion-skeleton-text
         class="skeleton"
         [animated]="true"
-        style="width: 80%"
+        style="width: 100%"
       ></ion-skeleton-text>
     </div>
     </ng-container>
- 
+
 
 </ion-content>

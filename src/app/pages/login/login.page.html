@@ -1,26 +1,34 @@
-<div>
-  <ion-card> 
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Uber Fruna</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content scrollY="false">
+  <ion-card>
+    <ion-card-content>
+      <ion-label>Iniciar sesión</ion-label>
+  <ion-card >
     <ion-card-content>
       <ion-item>
-        <ion-label>Email:</ion-label>
+        <ion-label position="floating">Email:</ion-label>
         <ion-input [(ngModel)]="email" type="text"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label>Contraseña:</ion-label>
+        <ion-label position="floating">Contraseña:</ion-label>
         <ion-input [(ngModel)]="contrasena" type="password"></ion-input>
       </ion-item>
     </ion-card-content>
     <ion-row>
       <ion-col>
-        <ion-button (click)="login()" expand="full">Acceder</ion-button>
+        <ion-button (click)="login()" expand="full" shape="round">Acceder</ion-button>
       </ion-col>
       <ion-col>
-        <ion-button [routerLink]="['/registro']" expand="full">Registrarse</ion-button>
+        <ion-button [routerLink]="['/registro']" expand="full" shape="round">Registrarse</ion-button>
       </ion-col>
       <ion-col>
-        <ion-button [routerLink]="['/resetpass']" expand="full">Recuperar contraseña</ion-button>
+        <ion-button [routerLink]="['/resetpass']" expand="full" shape="round">Recuperar contraseña</ion-button>
       </ion-col>
     </ion-row>
   </ion-card>
-</div>
+
 

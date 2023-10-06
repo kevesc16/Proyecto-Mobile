@@ -17,9 +17,9 @@ export class LoginPage implements OnInit {
     private router: Router,
     private helperService:HelperService,
     private auth:AngularFireAuth
-    
+
     ) { }
-    
+
     simularCargaMenu =()=>
     this.loading= false;
 
@@ -27,25 +27,31 @@ export class LoginPage implements OnInit {
     setTimeout(this.simularCargaMenu,2000);
   }
   async login(){
+    const loader = await this.helperService.showLoader("Cargando");
     if (this.email == "") {
+      await loader.dismiss();
       this.helperService.showAlert("Debe ingresar un Email.","Error");
       return;
     }
     if (this.contrasena == "") {
+      await loader.dismiss();
       this.helperService.showAlert("Debe ingresar una contraseña.","Error");
       return;
     }
 
-    try { 
+    try {
       const req= await this.auth.signInWithEmailAndPassword(this.email, this.contrasena);
       console.log("TOKEN",req.user?.getIdToken())
+      await loader.dismiss();
       await this.router.navigateByUrl('menu')
     }catch (error){
       if(this.email!= this.email){
+        await  loader.dismiss();
         this.helperService.showAlert("El email no es valido.","Error");
         return;
       }
       if(this.contrasena!=this.contrasena){
+        await  loader.dismiss();
         this.helperService.showAlert("La contraseña no es valida.","Error");
         return;
       }

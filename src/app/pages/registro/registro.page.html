@@ -23,21 +23,34 @@
     <ion-label position="floating">Correo Electrónico</ion-label>
     <ion-input type="email" [(ngModel)]="correo"></ion-input>
   </ion-item>
-
   <ion-item>
     <ion-label position="floating">Contraseña</ion-label>
     <ion-input type="password" [(ngModel)]="contrasena"></ion-input>
   </ion-item>
-  <ion-button (click)="registro()">Registrar</ion-button>
+  <ion-list>
+    <ion-item>
+      <ion-select (ionChange)="cargarComuna()" placeholder="Seleccione region" [(ngModel)]="regionSeleccionado">
+        <ion-select-option [value]="i.id" *ngFor="let i of regiones">{{i.nombre}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list> 
+  <ion-list>
+    <ion-item>
+      <ion-select placeholder="Seleccione comuna" [(ngModel)]="comunaSeleccionada">
+        <ion-select-option [value]="i.id" *ngFor="let i of comunas">{{i.nombre}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-button (click)="registro()"shape="round">Registrar</ion-button>
 </ng-container>
 <ng-container *ngIf="loading">
 <div class="box-skeleton" *ngFor="let skeleton of [1]">
   <ion-skeleton-text
     class="skeleton"
     [animated]="true"
-    style="width: 80%"
+    style="width: 100%"
   ></ion-skeleton-text>
 </div>
 </ng-container>
-  
+
 </ion-content>

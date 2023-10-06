@@ -14,12 +14,12 @@ import { HelperService } from 'src/app/service/-helper.service';
 
 export class MenuPage implements OnInit, OnDestroy {
   private animation!: Animation;
-  
+
   @ViewChild(IonCard, { read: ElementRef }) card!: ElementRef<HTMLIonCardElement>;
 
   menuArray:Menu[]=[]
   loading:boolean= true;
-  
+
   constructor(
   private router: Router,
   private animationCtrl: AnimationController,
@@ -38,23 +38,23 @@ export class MenuPage implements OnInit, OnDestroy {
       .fromTo('transform', 'translateX(0px)', 'translateX(100px)')
       .fromTo('opacity', '1', '0.2');
   }
- 
+
   cargarMenu(){
     var par=456
     this.menuArray.push(
       {
         id:1,
-        titulo:"Menu uno",
-        url:"/"+par+"/menu-uno",
-        icono:"desktop-outline",
-        
+        titulo:"Disponibilizar",
+        url:"/"+"disponibilidad",
+        icono:"speedometer-outline",
+
     },
     {
       id:2,
-      titulo:"Menu dos",
-      url:"/"+"menu/menu-dos",
-      icono:"partly-sunny-outline",
-      disabled:true
+      titulo:"Solicitar",
+      url:"/"+"menu/formulario",
+      icono:"rocket-outline",
+
     }
 
     )
@@ -109,14 +109,14 @@ play(){
     this.menuCtrl.close();
   }
   perfil(){
-    this.router.navigateByUrl('perfil'); 
+    this.router.navigateByUrl('perfil');
   }
   menuUno() {
     var parametroN1 = 123456;
     this.router.navigateByUrl(parametroN1 + '/menu-uno');
   }
 
-  
-  
- 
+
+
+
 }

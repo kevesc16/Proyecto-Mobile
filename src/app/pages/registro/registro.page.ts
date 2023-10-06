@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
+import { Comuna } from 'src/app/models/comuna';
+import { Region } from 'src/app/models/region';
 import { HelperService } from 'src/app/service/-helper.service';
-//import { StorageService } from 'src/app/service/storage.service';
+import { LocationService } from 'src/app/service/location.service';
+import { StorageService } from 'src/app/service/storage.service';
 
 @Component({
   selector: 'app-registro',
@@ -15,21 +18,39 @@ export class RegistroPage implements OnInit {
   contrasena:string="";
   loading:boolean= true;
 
+  regiones:Region[]=[];
+  comunas:Comuna[]=[];
+
+  regionSeleccionado:number = 0;
+  comunaSeleccionada:number = 0;
+
 
   constructor(
     private helper:HelperService,
     private router:Router,
-   // private storage:StorageService, 
-    private auth:AngularFireAuth
+    private storage:StorageService,
+    private auth:AngularFireAuth,
+    private location:LocationService,
+
     ) { }
     simularCargaMenu =()=>
     this.loading= false;
 
-    
-    
+    async cargarRegion(){
+      const req = await this.location.getRegion();
+      this.regiones = req.data;
+      console.log("REGION",this.regiones);
+    }
+
+    async cargarComuna(){
+      const req = await this.location.getComuna(this.regionSeleccionado);
+      this.comunas = req.data;
+    }
+
 
   ngOnInit() {
     setTimeout(this.simularCargaMenu,1000);
+    this.cargarRegion();
   }
 async reg(){
   let confirmar= await this.helper.showConfirm("Desea que sus datos sean guardados de manera permanente?","Shi","Ño")
@@ -42,7 +63,7 @@ async reg(){
   async registro(){
     const loader = await this.helper.showLoader("Cargando");
     try {
-      var user = 
+      var user =
       [
         {
           correo:this.correo,
@@ -65,7 +86,7 @@ async reg(){
       }
 
 
-      
+
     }
   }
 }
