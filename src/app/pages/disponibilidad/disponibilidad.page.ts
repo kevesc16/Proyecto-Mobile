@@ -22,7 +22,7 @@ loading:boolean= true;
     this.loading= false;
 
   ngOnInit() {
-    setTimeout(this.simularCargaMenu,2000);
+    setTimeout(this.simularCargaMenu,1000);
   }
   alerta(){
     this.helper.showAlert("Uber Fruna Disponibilizado","Realizado")

@@ -55,6 +55,7 @@ export class LoginPage implements OnInit {
         this.helperService.showAlert("La contraseña no es valida.","Error");
         return;
       }
+      await loader.dismiss();
       console.error('Error logging in:', error);
     this.helperService.showAlert('El correo electrónico o la contraseña son incorrectos.', 'Error');
     }

@@ -11,7 +11,7 @@ export class HelperService {
     private alertService:AlertController,
     private loadingController:LoadingController,
     private auth:AngularFireAuth
-    
+
     ) { }
 
   async showAlert(msg:string,title:string){
@@ -46,7 +46,7 @@ export class HelperService {
       ]
     })
     await alert.present();
-  
+
   });
   return promise;
 }
@@ -64,11 +64,23 @@ async showLoader(msg:string){
 async changePassword(email: string): Promise<void> {
   try {
     return this.auth.sendPasswordResetEmail(email)
-    
+
   } catch (error) {
     console.error('Error updating password:', error);
     // Mostrar un mensaje de error al usuario
   }
-} 
+}
+async ConfirmarEmail(email:string): Promise<void>{
+  try{
+    const actionCodeSettings = {
+      url: 'https://kevito-f19b8.firebaseapp.com/__/auth/action?mode=action&oobCode=code',
+      handleCodeInApp: true
+    };
+    return this.auth.sendSignInLinkToEmail(email, actionCodeSettings)
+  }catch(error){
+    console.error('Error al enviar confirmación', error);
+    // Mostrar un mensaje de error al usuario
+  }
+}
 
 }
