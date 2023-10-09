@@ -13,26 +13,38 @@
 </ion-header>
 
 
-<ion-menu contentId="main-content">
+  <ion-menu contentId="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-icon name="close-outline" slot="end" (Click)="cerrarMenu()"></ion-icon>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content class="ion-padding" scrollY="false">
+        <ion-list>
+          <ion-item (click)="perfil()" >
+            <ion-icon style="padding-right: 10px; color: rgb(14, 136, 136);" name="person-circle-outline"></ion-icon>
+            <h3>Perfil</h3>
+          </ion-item>
+        </ion-list>
+    </ion-content>
+  </ion-menu>
+
+<div class="ion-page" id="main-content">
   <ion-header>
     <ion-toolbar>
-      <ion-icon name="close-outline" slot="end" (click)="cerrarMenu()"></ion-icon>
-      <ion-title>Menú</ion-title>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Menu</ion-title>
     </ion-toolbar>
   </ion-header>
-<ion-content class="ion-padding" scrollY="false">
-      <ion-list>
-        <ion-item (Click)="perfil()">
-        <ion-icon style="padding-right: 10px; color: rgb(14, 136, 136);" name="person-circle-outline"></ion-icon>
-        <h3>Perfil</h3>
-      </ion-item>
-</ion-list>
-  </ion-content>
-</ion-menu>
-
-<ion-content [fullscreen]="true">
+  <ion-content class="ion-padding"> Tap the button in the toolbar to open the menu. </ion-content>
+</div>
 
 
+<ion-content [fullscreen]="true" class="fondomenu">
 <ng-container *ngIf="!loading">
   <ng-container *ngFor="let m of menuArray">
     <ion-card [routerLink]="m.url" *ngIf="m.disabled" class="disabled">

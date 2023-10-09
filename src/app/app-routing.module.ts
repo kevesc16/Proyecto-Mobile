@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AngularFireAuthGuard, redirectUnauthorizedTo } from '@angular/fire/compat/auth-guard';
+import { PerfilPage } from './pages/perfil/perfil.page';
 const redirectLLog =()=> redirectUnauthorizedTo(('/login'));
 const routes: Routes = [
   {
@@ -9,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'menu',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
@@ -39,6 +40,11 @@ const routes: Routes = [
     path: 'resetpass',
     loadChildren: () => import('./pages/resetpass/resetpass.module').then( m => m.ResetpassPageModule)
   },
+  {
+    path: 'perfil',
+    loadChildren: () => import('./pages/perfil/perfil.module').then( m => m.PerfilPageModule)
+  },
+
 ];
 
 @NgModule({

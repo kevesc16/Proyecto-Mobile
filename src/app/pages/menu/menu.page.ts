@@ -27,8 +27,10 @@ export class MenuPage implements OnInit, OnDestroy {
   private menuCtrl:MenuController,
   private auth:AngularFireAuth
   ) {}
+
   simularCargaMenu =()=>
   this.loading= false;
+
   ngAfterViewInit() {
     this.animation = this.animationCtrl
       .create()
@@ -62,6 +64,7 @@ export class MenuPage implements OnInit, OnDestroy {
 play(){
   this.animation.play();
 }
+
   pause() {
     this.animation.pause();
   }
@@ -69,6 +72,7 @@ play(){
   stop() {
     this.animation.stop();
   }
+  
   ngOnDestroy(): void {
     console.log('Destruyendo la vista');
   }
@@ -95,22 +99,26 @@ play(){
     console.log('Abandonó la vista');
   }
 
- async logOut() {
+async logOut() {
     var confirmar = await this.helper.showConfirm("Desea cerrar la sesión actual?","Confirmar","Cancelar");
     if (confirmar == true) {
       await this.auth.signOut();
       await this.router.navigateByUrl("login");
     }
   }
+
   toggle(){
     this.menuCtrl.toggle();
   }
+  
   cerrarMenu(){
     this.menuCtrl.close();
   }
+
   perfil(){
-    this.router.navigateByUrl('perfil');
+    this.router.navigateByUrl("perfil");
   }
+
   menuUno() {
     var parametroN1 = 123456;
     this.router.navigateByUrl(parametroN1 + '/menu-uno');
