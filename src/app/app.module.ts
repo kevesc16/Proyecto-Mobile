@@ -20,7 +20,7 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
     AppRoutingModule,
   HttpClientModule,
 AngularFireAuthModule,
-AngularFireModule.initializeApp(environment.firebaseConfig),
+AngularFireModule.initializeApp(environment.firebase),
 provideFirebaseApp(() => initializeApp(environment.firebase)),
 provideAuth(() => getAuth()),
 provideFirestore(() => getFirestore())
