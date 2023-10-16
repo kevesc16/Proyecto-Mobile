@@ -1,3 +1,16 @@
 .skeleton{
     height: 500px;
 }
+ion-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    --background: url('https://static.vecteezy.com/system/resources/previews/013/322/962/non_2x/dark-blue-polygonal-pattern-abstract-geometric-background-triangular-mosaic-perfect-for-website-mobile-app-advertisement-social-media-free-photo.jpeg') no-repeat center center fixed;
+    --background-size: cover;
+    ion-padding {
+      padding: 20px;
+      max-width: 500px;
+      width: 100%;
+    }
+  }

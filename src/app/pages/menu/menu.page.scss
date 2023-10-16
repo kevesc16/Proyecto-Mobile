@@ -20,3 +20,13 @@
   vertical-align: super;
   align-items: center;
 }
+
+ion-menu::part(backdrop) {
+    background-color: rgba(17, 149, 22, 0.678);
+  }
+  
+  ion-menu::part(container) {
+    border-radius: 0 20px 20px 0;
+  
+    box-shadow: 4px 0px 16px rgba(146, 26, 179, 0.441);
+  }

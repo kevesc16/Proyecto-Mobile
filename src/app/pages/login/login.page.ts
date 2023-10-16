@@ -59,7 +59,10 @@ export class LoginPage implements OnInit {
       console.error('Error logging in:', error);
     this.helperService.showAlert('El correo electrónico o la contraseña son incorrectos.', 'Error');
     }
-    this.email = "";
-    this.contrasena = "";
+    //guardar informacion del ususario
+  
+
   }
+  
+  
 }
