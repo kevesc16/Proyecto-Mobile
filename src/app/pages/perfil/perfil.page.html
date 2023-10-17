@@ -1,12 +1,20 @@
-<<ion-header [translucent]="true">
+<ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Perfil</ion-title>
     <ion-buttons slot="start">
-      <ion-back-button>Back</ion-back-button>
+      <ion-back-button></ion-back-button>
     </ion-buttons>
+    <ion-title>Perfil</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="fondomenu">
-  
+  <ion-card *ngFor="let i of usuario" class="perfil-card">
+    <ion-item>
+      <div>
+      {{"Nombre: "+ ' ' +i.nombre}}<br>
+      {{"correo: "+ ' ' +i.correo}}
+      <!--small>{{}}</small-->
+    </div>
+    </ion-item>
+  </ion-card>
 </ion-content>

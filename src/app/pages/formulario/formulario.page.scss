@@ -1,3 +1,35 @@
-.skeleton{
-    height: 300px;
-}
+ion-content {
+    background: transparent;
+    display: flex;
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+  }
+  
+  .fondomenu {
+    background-image: url(https://i.pinimg.com/736x/41/ce/ed/41ceed6b443531d18fb3d8793b660e3c.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+    color: white;
+  }
+  
+  ion-item {
+    --color: white;
+  }
+  
+  ion-input {
+    --color: white;
+  }
+  
+  ion-button.btn {
+    --background: #0e8888;
+    --color: white;
+  }
+  
+  .box-skeleton {
+    height: 500px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 10px 0;
+  }
