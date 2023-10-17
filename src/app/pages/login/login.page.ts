@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 import { HelperService } from 'src/app/service/-helper.service';
+
 
 @Component({
   selector: 'app-login',
@@ -16,14 +18,19 @@ export class LoginPage implements OnInit {
   constructor(
     private router: Router,
     private helperService:HelperService,
-    private auth:AngularFireAuth
+    private auth:AngularFireAuth,
+    private toast:ToastController,
+
 
     ) { }
 
     simularCargaMenu =()=>
     this.loading= false;
 
+
+
   ngOnInit() {
+
     setTimeout(this.simularCargaMenu,2000);
   }
   async login(){
@@ -44,6 +51,7 @@ export class LoginPage implements OnInit {
       console.log("TOKEN",req.user?.getIdToken())
       await loader.dismiss();
       await this.router.navigateByUrl('menu')
+
     }catch (error){
       if(this.email!= this.email){
         await  loader.dismiss();
@@ -62,4 +70,5 @@ export class LoginPage implements OnInit {
     this.email = "";
     this.contrasena = "";
   }
+
 }

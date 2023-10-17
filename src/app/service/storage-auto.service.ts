@@ -1,31 +1,22 @@
 import { Injectable } from '@angular/core';
 import { Preferences } from '@capacitor/preferences';
-
-const storageUsuario = "usuarioData";
-const storageAuto="autoData"
-
-
+const storageAuto="autoData";
 @Injectable({
   providedIn: 'root'
 })
-export class StorageService {
-  public userCorreo = "";
-  constructor() { }
+export class StorageAutoService {
 
+  constructor(  ) { }
 
   async getItem(llave:string):Promise<string | null>{
     const obj = await Preferences.get({key:llave});
     return obj.value;
   }
-
-
   async setItem(llave:string, valor:string){
     await Preferences.set({key:llave,value:valor});
   }
-
-
-  async obtenerUsuario(){
-    const storageData = await this.getItem(storageUsuario);
+  async obtenerAuto(){
+    const storageData = await this.getItem(storageAuto);
     if (storageData == null) {
       return [];
     }
@@ -37,23 +28,15 @@ export class StorageService {
       return [];
     }
   }
-
-  async agregarUsuario(user:any[]){
-    const usuarios = await this.obtenerUsuario();
-    for (const i of usuarios) {
+  async agregarAuto(auto:any[]){
+    const autos = await this.obtenerAuto();
+    for (const i of autos) {
       if (i) {
-        user.push(i);
+        auto.push(i);
       }
     }
 
-    this.setItem(storageUsuario,JSON.stringify(user));
-    
+    this.setItem(storageAuto,JSON.stringify(auto));
   }
-async agregarAuto(auto:any[]){
-
-}
-async getNombreUsuario(): Promise<string | null> {
-  return this.getItem('nombreUsuario');
-}
 
 }

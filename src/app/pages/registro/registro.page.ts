@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { user } from '@angular/fire/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { Comuna } from 'src/app/models/comuna';
@@ -24,8 +23,8 @@ export class RegistroPage implements OnInit {
   regiones:Region[]=[];
   comunas:Comuna[]=[];
 
-  regionSeleccionado:number = 0;
-  comunaSeleccionada:number = 0;
+  regionSeleccionado:string="";
+  comunaSeleccionada:string="";
 
 
   constructor(
@@ -67,7 +66,7 @@ async reg(){
   async registro(){
     const loader = await this.helper.showLoader("Cargando");
     try {
-     /* if (this.nombre === "") {
+      if (this.nombre === "") {
        await loader.dismiss();
         await this.helper.showAlert("Debe ingresar un nombre", "Error");
         return;
@@ -81,7 +80,7 @@ async reg(){
         await loader.dismiss();
         await this.helper.showAlert("Debe seleccionar una comuna", "Error");
         return;
-      }*/
+      }
 
       var user =
       [
@@ -93,9 +92,12 @@ async reg(){
           comuna: this.comunaSeleccionada
         }
       ]
-      const request = await this.auth.createUserWithEmailAndPassword(this.correo,this.contrasena);
-      await this.storage.agregarUsuario(user);
+
+
       await loader.dismiss();
+
+      await this.auth.createUserWithEmailAndPassword(this.correo, this.contrasena);
+      await this.storage.agregarUsuario(user);
       await this.helper.showAlert("Usuario registrado corretamente","Información");
       await this.router.navigateByUrl('login');
       await loader.dismiss();

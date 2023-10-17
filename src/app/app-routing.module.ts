@@ -9,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'menu',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {

@@ -38,7 +38,7 @@
     <ion-label position="floating">Costo</ion-label>
     <ion-input type="text" [(ngModel)]="costo"></ion-input>
   </ion-item>
-  <ion-button  expand="full" class="btn"(click)="alerta()"shape="round">Subir</ion-button>
+  <ion-button  expand="full" class="btn"(click)="agregarAuto()"shape="round">Subir</ion-button>
   </ng-container>
   <ng-container *ngIf="loading">
     <div class="box-skeleton" *ngFor="let skeleton of [1]">
