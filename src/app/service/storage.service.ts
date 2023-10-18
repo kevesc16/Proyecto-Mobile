@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Preferences } from '@capacitor/preferences';
 
 const storageUsuario = "usuarioData";
-const storageAuto="autoData"
+
 
 
 @Injectable({
@@ -47,11 +47,9 @@ export class StorageService {
     }
 
     this.setItem(storageUsuario,JSON.stringify(user));
-    
-  }
-async agregarAuto(auto:any[]){
 
-}
+  }
+
 async getNombreUsuario(): Promise<string | null> {
   return this.getItem('nombreUsuario');
 }

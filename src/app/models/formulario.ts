@@ -1,5 +1,8 @@
 export interface Formulario {
-    origen?:string;
-    destino?:string;
-    costo?:string;
+costo?:number;
+destino?:string;
+conductor?:string;
+patente?:string;
+cPasajeros?:number;
+
 }

@@ -10,6 +10,7 @@ import { StorageAutoService } from 'src/app/service/storage-auto.service';
 })
 export class DisponibilidadPage implements OnInit {
 costo:string="";
+marca:string="";
 conductor:string="";
 Cpasajeros:string="";
 destino:string="";
@@ -34,6 +35,7 @@ async agregarAuto(){
   const auto=[{
     costo:this.costo,
     conductor:this.conductor,
+    marca:this.marca,
     Cpasajeros:this.Cpasajeros,
     destino:this.destino,
     patente:this.patente

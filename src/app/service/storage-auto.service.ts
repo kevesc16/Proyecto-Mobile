@@ -28,7 +28,7 @@ export class StorageAutoService {
       return [];
     }
   }
-  async agregarAuto(auto:any[]){
+  async agregarAuto(auto:any[]){ 
     const autos = await this.obtenerAuto();
     for (const i of autos) {
       if (i) {
