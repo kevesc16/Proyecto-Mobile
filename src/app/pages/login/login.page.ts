@@ -51,7 +51,7 @@ export class LoginPage implements OnInit {
       const req= await this.auth.signInWithEmailAndPassword(this.email, this.contrasena);
       console.log("TOKEN",req.user?.getIdToken())
       await loader.dismiss();
-      await this.router.navigateByUrl('menu')
+      await this.router.navigateByUrl('menu/'+this.email)
 
     }catch (error){
       if(this.email!= this.email){
@@ -69,10 +69,10 @@ export class LoginPage implements OnInit {
     this.helperService.showAlert('El correo electrónico o la contraseña son incorrectos.', 'Error');
     }
     //guardar informacion del ususario
-  
+
 
   }
-  
-  
+
+
 
 }

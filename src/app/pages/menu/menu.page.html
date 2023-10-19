@@ -3,79 +3,63 @@
     <ion-button (click)="logOut()" slot="end">
       <ion-icon name="log-out-outline"></ion-icon>
     </ion-button>
-
     <ion-button (click)="toggle()" slot="start">
       <ion-icon name="menu-outline"></ion-icon>
     </ion-button>
-
-    <ion-title>menu</ion-title>
+    <ion-title>Menú</ion-title>
   </ion-toolbar>
-
 </ion-header>
-
-
-
+  <ion-menu contentId="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-icon class="aloha" name="close-outline" slot="end" (click)="cerrarMenu()"></ion-icon>
+        <ion-title>Menú</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding" scrollY="false">
+        <ion-list>
+          <ion-item (click)="perfil()" >
+            <ion-icon style="padding-right: 10px; color: rgb(14, 136, 136);" name="person-circle-outline"></ion-icon>
+            <h3>Perfíl</h3>
+          </ion-item>
+        </ion-list>
+    </ion-content>
+  </ion-menu>
 <div class="ion-page" id="main-content">
   <ion-header>
     <ion-toolbar>
-      <ion-icon class="aloha" name="close-outline" slot="end" (click)="cerrarMenu()"></ion-icon>
-      <ion-title>Menu</ion-title>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Menú</ion-title>
     </ion-toolbar>
   </ion-header>
+</div>
+<ion-content [fullscreen]="true" class="fondomenu">
+<ng-container *ngIf="!loading">
+  <ng-container *ngFor="let m of menuArray">
+    <ion-card [routerLink]="m.url" *ngIf="m.disabled" class="disabled">
+      <div class="box">
+        <ion-icon id="a" [name]="m.icono" style="font-size: 36px"></ion-icon>
+        <h3 id="a">{{m.titulo}}</h3>
+      </div>
+    </ion-card>
+    <ion-card [routerLink]="m.url" *ngIf="!m.disabled" class="enabled" >
+      <div class="box">
+        <ion-icon id="a" [name]="m.icono" style="font-size: 36px"></ion-icon>
+        <h3 id="a">{{m.titulo}}</h3>
+      </div>
+    </ion-card>
+  </ng-container>
 
-  <ion-content class="ion-padding" scrollY="false">
-    <ion-list>
-      <ion-item (click)="perfil()">
-        <ion-icon style="padding-right: 10px; color: rgb(14, 136, 136);" name="person-circle-outline"></ion-icon>
-        <h3>Perfil</h3>
-      </ion-item>
-    </ion-list>
-  </ion-content>
-
-
-
-
-  <ion-content [fullscreen]="true">
-    <div class="ion-page" id="main-content">
-      <ion-header>
-        <ion-toolbar>
-          <ion-buttons slot="start">
-            <ion-menu-button></ion-menu-button>
-          </ion-buttons>
-          <ion-title>Menu</ion-title>
-        </ion-toolbar>
-      </ion-header>
-      <ion-content class="ion-padding"> Tap the button in the toolbar to open the menu. </ion-content>
-    </div>
-
-
-
-    <ion-content [fullscreen]="true" class="fondomenu">
-      <ng-container *ngIf="!loading">
-        <ng-container *ngFor="let m of menuArray">
-          <ion-card [routerLink]="m.url" *ngIf="m.disabled" class="disabled">
-            <div class="box">
-              <ion-icon id="a" [name]="m.icono" style="font-size: 36px"></ion-icon>
-              <h3 id="a">{{m.titulo}}</h3>
-            </div>
-          </ion-card>
-
-          <ion-card [routerLink]="m.url" *ngIf="!m.disabled" class="enabled">
-            <div class="box">
-              <ion-icon id="a" [name]="m.icono" style="font-size: 36px"></ion-icon>
-              <h3 id="a">{{m.titulo}}</h3>
-            </div>
-          </ion-card>
-
-        </ng-container>
-
-        <!--ion-button (click)="play()">Play</!--ion-button>
-  <ion-button (click)="pause()">Pause</ion-button>
-  <ion-button-- (click)="stop()">Stop</ion-button-->
-
-
-        <ng-container *ngIf="loading">
-          <div class="box-skeleton" *ngFor="let skeleton of [1,2]">
-            <ion-skeleton-text class="skeleton" [animated]="true" style="width: 100%"></ion-skeleton-text>
-          </div>
-        </ng-container>
+</ng-container>
+  <ng-container *ngIf="loading">
+  <div class="box-skeleton" *ngFor="let skeleton of [1,2]">
+    <ion-skeleton-text
+      class="skeleton"
+      [animated]="true"
+      style="width: 100%"
+    ></ion-skeleton-text>
+  </div>
+  </ng-container>
+</ion-content>

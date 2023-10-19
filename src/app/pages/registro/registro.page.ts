@@ -16,6 +16,7 @@ import { StorageService } from 'src/app/service/storage.service';
 export class RegistroPage implements OnInit {
   nombre: string = '';
   correo: string = '';
+  nacionalidad:string='';
   contrasena: string = '';
   loading: boolean = true;
 
@@ -111,7 +112,7 @@ export class RegistroPage implements OnInit {
         {
           nombre: this.nombre,
           correo: this.correo,
-          contrasena: this.contrasena,
+          nacionalidad:this.nacionalidad,
           region: this.nombreRegion,
           comuna: this.nombreComuna
         }

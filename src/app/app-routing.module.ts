@@ -18,7 +18,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'menu',
+    path: 'menu/:correo',
     canActivate:[AngularFireAuthGuard],data:{authGuardPipe:redirectLLog},
     loadChildren: () => import('./pages/menu/menu.module').then( m => m.MenuPageModule)
   },
@@ -32,7 +32,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/disponibilidad/disponibilidad.module').then( m => m.DisponibilidadPageModule)
   },
   {
-    path: 'menu/formulario',
+    path: 'formulario',
     canActivate:[AngularFireAuthGuard],data:{authGuardPipe:redirectLLog},
     loadChildren: () => import('./pages/formulario/formulario.module').then( m => m.FormularioPageModule)
   },
