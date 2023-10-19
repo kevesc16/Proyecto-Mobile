@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Comuna } from 'src/app/models/comuna';
 import { Region } from 'src/app/models/region';
 import { HelperService } from 'src/app/service/-helper.service';
+import { FirestoreService } from 'src/app/service/firestore.service';
 import { LocationService } from 'src/app/service/location.service';
 import { StorageService } from 'src/app/service/storage.service';
 
@@ -22,8 +23,8 @@ export class RegistroPage implements OnInit {
   regiones:Region[]=[];
   comunas:Comuna[]=[];
 
-  regionSeleccionado:number = 0;
-  comunaSeleccionada:number = 0;
+  regionSeleccionado:string="";
+  comunaSeleccionada:string="";
 
 
   constructor(
@@ -32,6 +33,7 @@ export class RegistroPage implements OnInit {
     private storage:StorageService,
     private auth:AngularFireAuth,
     private location:LocationService,
+    private store:FirestoreService
 
     ) { }
     simularCargaMenu =()=>
@@ -64,7 +66,7 @@ async reg(){
   async registro(){
     const loader = await this.helper.showLoader("Cargando");
     try {
-     /* if (this.nombre === "") {
+      if (this.nombre === "") {
        await loader.dismiss();
         await this.helper.showAlert("Debe ingresar un nombre", "Error");
         return;
@@ -78,7 +80,7 @@ async reg(){
         await loader.dismiss();
         await this.helper.showAlert("Debe seleccionar una comuna", "Error");
         return;
-      }*/
+      }
 
       var user =
       [
@@ -90,9 +92,12 @@ async reg(){
           comuna: this.comunaSeleccionada
         }
       ]
-      const request = await this.auth.createUserWithEmailAndPassword(this.correo,this.contrasena);
-      await this.storage.agregarUsuario(user);
+
+
       await loader.dismiss();
+
+      await this.auth.createUserWithEmailAndPassword(this.correo, this.contrasena);
+      await this.storage.agregarUsuario(user);
       await this.helper.showAlert("Usuario registrado corretamente","Información");
       await this.router.navigateByUrl('login');
       await loader.dismiss();
@@ -123,73 +128,5 @@ async reg(){
     this.contrasena = "";
     this.correo = "";
   }
-  /*
-  async registro(){
-    const loader = await this.helper.showLoader("Cargando");
-    try {
-      if (this.nombre === "") {
-        await loader.dismiss();
-        await this.helper.showAlert("Debe ingresar un nombre", "Error");
-        return;
-      }
-      if (!this.regionSeleccionado) {
-        await loader.dismiss();
-        await this.helper.showAlert("Debe seleccionar una región", "Error");
-        return;
-      }
-      if (!this.comunaSeleccionada) {
-        await loader.dismiss();
-        await this.helper.showAlert("Debe seleccionar una comuna", "Error");
-        return;
-      }
-
-      var user =
-      [
-        {
-          nombre:this.nombre,
-          correo:this.correo,
-          contrasena:this.contrasena,
-          region: this.regionSeleccionado,
-          comuna: this.comunaSeleccionada
-        }
-      ]
-      const request = await this.auth.createUserWithEmailAndPassword(this.correo,this.contrasena);
-      await this.storage.agregarUsuario(user);
-
-      // Enviar correo de confirmación
-      await this.helper.ConfirmarEmail(this.correo);
-      await this.helper.showAlert("Verificación de correo enviada!","Hey")
-      await loader.dismiss();
-      await this.helper.showAlert("Usuario registrado corretamente","Información");
-      await loader.dismiss();
-      await this.router.navigateByUrl('login');
-    } catch (error:any) {
-      if(error.code == 'auth/email-already-in-use'){
-        await loader.dismiss();
-        await this.helper.showAlert("El correo ya esta en uso","Error");
-      }
-      if(error.code == 'auth/invalid-email'){
-        await loader.dismiss();
-        await this.helper.showAlert("Error en el formato del correo","Error");
-      }
-      if(error.code=='auth/missing-email'){
-        await loader.dismiss();
-        await this.helper.showAlert("Debe ingresar un correo","Error");
-      }
-      if(error.code == 'auth/weak-password'){
-        await loader.dismiss();
-        await this.helper.showAlert("El largo de la contraseña es incorrecto","Error");
-      }
-      if(error.code=='auth/missing-password'){
-        await loader.dismiss();
-        await this.helper.showAlert("Debe ingresar una contraseña","Error");
-      }
-    }
-
-    this.nombre = "";
-    this.contrasena = "";
-    this.correo = "";
-  }*/
-
 
 }

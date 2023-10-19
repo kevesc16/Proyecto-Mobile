@@ -8,7 +8,7 @@ import { HelperService } from 'src/app/service/-helper.service';
   selector: 'app-resetpass',
   templateUrl: './resetpass.page.html',
   styleUrls: ['./resetpass.page.scss'],
-  
+
 })
 export class ResetpassPage implements OnInit {
 correo:string="";
@@ -21,9 +21,10 @@ loading:boolean= true;
     private helper:HelperService,
     private router:Router,
     private auth: AngularFireAuth,
-  
-    
-    
+
+
+
+
     ) { }
     simularCargaMenu =()=>
     this.loading= false;
@@ -37,13 +38,44 @@ loading:boolean= true;
       this.router.navigateByUrl('login')
     }
   }*/
- async conf(){
-  const email= this.correo;
- await this.helper.changePassword(email);
- this.helper.showAlert("Revisa tu bandeja de entrada","Listo!")
- this.router.navigateByUrl('/login')
-   
- }
+/*async conf(){
+  try {
+    const email = this.correo;
+    await this.helper.changePassword(email);
+    this.helper.showAlert("Revisa tu bandeja de entrada","Listo!")
+    this.router.navigateByUrl('/login')
+  } catch (error: any) {
+    if (error.code == 'auth/user-not-found'){
+      this.helper.showAlert("El correo ingresado no existe","Error")
 
+    }
   }
+}*/
+async conf(){
+  const loader = await this.helper.showLoader("Cargando");
+  try {
+    const email = this.correo;
+    await this.helper.changePassword(email);
+    this.helper.showAlert("Revisa tu bandeja de entrada","Listo!")
+    await loader.dismiss();
+    this.router.navigateByUrl('/login')
+  } catch (error: any) {
+    if (error.code === 'auth/user-not-found'){
+      await loader.dismiss();
+      this.helper.showAlert("El correo ingresado no existe","Error");
+    }
+     if(error.code == 'auth/invalid-email'){
+      await loader.dismiss();
+      await this.helper.showAlert("Error en el formato del correo","Error");
+    }
+    if(error.code=='auth/missing-email'){
+      await loader.dismiss();
+      await this.helper.showAlert("Debe ingresar un correo","Error");
+    } /*else {
+      console.error(error);
+      await loader.dismiss();
+      this.helper.showAlert("Ha ocurrido un error", "Error");*/
+    }
+  }
+}
 

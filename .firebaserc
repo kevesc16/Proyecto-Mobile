@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "kevito-f19b8"
+  },
+  "targets": {
+    "kevito-f19b8": {
+      "hosting": {
+        "app": [
+          "kevito-f19b8"
+        ]
+      }
+    }
+  }
+}
