@@ -84,11 +84,11 @@ async ConfirmarEmail(email:string): Promise<void>{
     // Mostrar un mensaje de error al usuario
   }
 }
-async showToast(msg:string, duracion:number = 3000){
+async showToast(msg:string, duracion:number = 3000, position:"top" | "bottom" | "middle" = "bottom"){
   var toast = await this.toast.create(
   {
     cssClass:"toastCss",
-    position:'bottom',
+    position: position,
     color:'dark',
     message:msg,
     duration:duracion

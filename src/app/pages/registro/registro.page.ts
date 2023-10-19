@@ -8,125 +8,155 @@ import { FirestoreService } from 'src/app/service/firestore.service';
 import { LocationService } from 'src/app/service/location.service';
 import { StorageService } from 'src/app/service/storage.service';
 
-
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.page.html',
   styleUrls: ['./registro.page.scss'],
 })
 export class RegistroPage implements OnInit {
-  nombre:string="";
-  correo:string="";
-  contrasena:string="";
-  loading:boolean= true;
+  nombre: string = '';
+  correo: string = '';
+  contrasena: string = '';
+  loading: boolean = true;
 
-  regiones:Region[]=[];
-  comunas:Comuna[]=[];
-
-  regionSeleccionado:string="";
-  comunaSeleccionada:string="";
-
+  regiones: Region[] = [];
+  comunas: Comuna[] = [];
+  nombreRegion: string = '';
+  nombreComuna: string = '';
+  idRegion: number = 0;
+  idComuna: number = 0;
+  regionSeleccionado: string = '';
+  comunaSeleccionada: string = '';
 
   constructor(
-    private helper:HelperService,
-    private router:Router,
-    private storage:StorageService,
-    private auth:AngularFireAuth,
-    private location:LocationService,
-    private store:FirestoreService
+    private helper: HelperService,
+    private router: Router,
+    private storage: StorageService,
+    private auth: AngularFireAuth,
+    private location: LocationService,
+    private store: FirestoreService
+  ) {}
+  simularCargaMenu = () => (this.loading = false);
 
-    ) { }
-    simularCargaMenu =()=>
-    this.loading= false;
+  async cargarRegion() {
+    const req = await this.location.getRegion();
+    this.regiones = req.data;
+    console.log('REGION', this.regiones);
+  }
 
-    async cargarRegion(){
-      const req = await this.location.getRegion();
-      this.regiones = req.data;
-      console.log("REGION",this.regiones);
-    }
-
-    async cargarComuna(){
-      const req = await this.location.getComuna(this.regionSeleccionado);
-      this.comunas = req.data;
-    }
-
+  async cargarComuna() {
+    const req = await this.location.getComuna(this.regionSeleccionado);
+    this.comunas = req.data;
+  }
 
   ngOnInit() {
-    setTimeout(this.simularCargaMenu,1000);
+    setTimeout(this.simularCargaMenu, 1000);
     this.cargarRegion();
   }
-async reg(){
-  let confirmar= await this.helper.showConfirm("Desea que sus datos sean guardados de manera permanente?","Shi","Ño")
-  if (confirmar==true){
-    this.helper.showAlert("Registro completado!","Aceptar")
-    this.router.navigateByUrl('login')
-
+  async reg() {
+    let confirmar = await this.helper.showConfirm(
+      'Desea que sus datos sean guardados de manera permanente?',
+      'Shi',
+      'Ño'
+    );
+    if (confirmar == true) {
+      this.helper.showAlert('Registro completado!', 'Aceptar');
+      this.router.navigateByUrl('login');
     }
   }
-  async registro(){
-    const loader = await this.helper.showLoader("Cargando");
+  async obtenerRegion() {
+    this.nombreRegion = this.regiones[this.idRegion].nombre;
+    this.nombreComuna = this.comunas[this.idComuna].nombre;
+    console.log('region', this.nombreRegion);
+    console.log('Comuna', this.nombreComuna);
+  }
+  async registro() {
+    const loader = await this.helper.showLoader('Cargando');
+
     try {
-      if (this.nombre === "") {
-       await loader.dismiss();
-        await this.helper.showAlert("Debe ingresar un nombre", "Error");
+      if (this.nombre === '') {
+        await loader.dismiss();
+        await this.helper.showAlert('Debe ingresar un nombre', 'Error');
+        return;
+      }
+      if (this.contrasena === '') {
+        await loader.dismiss();
+        await this.helper.showAlert('Debe ingresar una contraseña', 'Error');
+        return;
+      }
+      if (this.correo === '') {
+        await loader.dismiss();
+        await this.helper.showAlert('Debe ingresar un correo', 'Error');
+        return;
+      }
+      if (this.nombre === '') {
+        await loader.dismiss();
+        await this.helper.showAlert('Debe ingresar un nombre', 'Error');
         return;
       }
       if (!this.regionSeleccionado) {
         await loader.dismiss();
-        await this.helper.showAlert("Debe seleccionar una región", "Error");
+        await this.helper.showAlert('Debe seleccionar una región', 'Error');
         return;
       }
       if (!this.comunaSeleccionada) {
         await loader.dismiss();
-        await this.helper.showAlert("Debe seleccionar una comuna", "Error");
+        await this.helper.showAlert('Debe seleccionar una comuna', 'Error');
         return;
       }
+      await loader.dismiss();
+      await this.obtenerRegion();
 
-      var user =
-      [
+      var user = [
         {
-          nombre:this.nombre,
-          correo:this.correo,
-          contrasena:this.contrasena,
-          region: this.regionSeleccionado,
-          comuna: this.comunaSeleccionada
+          nombre: this.nombre,
+          correo: this.correo,
+          contrasena: this.contrasena,
+          region: this.nombreRegion,
+          comuna: this.nombreComuna
         }
-      ]
-
+      ];
 
       await loader.dismiss();
-
-      await this.auth.createUserWithEmailAndPassword(this.correo, this.contrasena);
+      await this.auth.createUserWithEmailAndPassword(
+        this.correo,
+        this.contrasena
+      );
       await this.storage.agregarUsuario(user);
-      await this.helper.showAlert("Usuario registrado corretamente","Información");
+      await this.helper.showAlert(
+        'Usuario registrado corretamente',
+        'Información'
+      );
       await this.router.navigateByUrl('login');
       await loader.dismiss();
-    } catch (error:any) {
-      if(error.code == 'auth/email-already-in-use'){
+    } catch (error: any) {
+      if (error.code == 'auth/email-already-in-use') {
         await loader.dismiss();
-        await this.helper.showAlert("El correo ya esta en uso","Error");
+        await this.helper.showAlert('El correo ya esta en uso', 'Error');
       }
-      if(error.code == 'auth/invalid-email'){
+      if (error.code == 'auth/invalid-email') {
         await loader.dismiss();
-        await this.helper.showAlert("Error en el formato del correo","Error");
+        await this.helper.showAlert('Error en el formato del correo', 'Error');
       }
-      if(error.code=='auth/missing-email'){
+      if (error.code == 'auth/missing-email') {
         await loader.dismiss();
-        await this.helper.showAlert("Debe ingresar un correo","Error");
+        await this.helper.showAlert('Debe ingresar un correo', 'Error');
       }
-      if(error.code == 'auth/weak-password'){
+      if (error.code == 'auth/weak-password') {
         await loader.dismiss();
-        await this.helper.showAlert("El largo de la contraseña es incorrecto","Error");
+        await this.helper.showAlert(
+          'El largo de la contraseña es incorrecto',
+          'Error'
+        );
       }
-      if(error.code=='auth/missing-password'){
+      if (error.code == 'auth/missing-password') {
         await loader.dismiss();
-        await this.helper.showAlert("Debe ingresar una contraseña","Error");
+        await this.helper.showAlert('Debe ingresar una contraseña', 'Error');
       }
     }
 
-    this.nombre = "";
-    this.contrasena = "";
-    this.correo = "";
+    this.nombre = '';
+    this.contrasena = '';
+    this.correo = '';
   }
-
 }

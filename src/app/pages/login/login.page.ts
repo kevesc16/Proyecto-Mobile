@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
-import { ToastController } from '@ionic/angular';
+import { Device } from '@capacitor/device';
 import { HelperService } from 'src/app/service/-helper.service';
 
 
@@ -14,12 +14,13 @@ export class LoginPage implements OnInit {
   email: string = '';
   contrasena: string = '';
   loading: boolean = true;
+  helper: any;
 
   constructor(
     private router: Router,
     private helperService:HelperService,
     private auth:AngularFireAuth,
-    private toast:ToastController,
+
 
 
     ) { }
@@ -30,9 +31,9 @@ export class LoginPage implements OnInit {
 
 
   ngOnInit() {
-
     setTimeout(this.simularCargaMenu,2000);
   }
+
   async login(){
     const loader = await this.helperService.showLoader("Cargando");
     if (this.email == "") {
