@@ -16,10 +16,15 @@
 
   <ng-container *ngIf="!loading">
     <ion-list>
-      <ion-item>
-        <ion-label position="floating">Patente</ion-label>
-        <ion-input type="text" [(ngModel)]="patente"></ion-input>
-      </ion-item>
+  <ion-item>
+    <ion-label position="floating">Patente</ion-label>
+    <ion-input type="text" [(ngModel)]="patente"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Marca</ion-label>
+    <ion-input type="text" [(ngModel)]="marca"></ion-input>
+  </ion-item>
 
       <ion-item>
         <ion-label position="floating">Destino</ion-label>
@@ -37,21 +42,25 @@
       </ion-item>
 
 
-      <ion-item>
-        <ion-label position="floating">Costo</ion-label>
-        <ion-input type="text" [(ngModel)]="costo"></ion-input>
-      </ion-item>
+  <ion-item>
+    <ion-label position="floating">Costo</ion-label>
+    <ion-input type="text" [(ngModel)]="costo"></ion-input>
+  </ion-item>
 
-      <ion-button expand="full" class="btn" (click)="alerta()" shape="round">Subir</ion-button>
-    </ion-list>
+  <ion-button  expand="full" class="btn"(click)="agregarAuto()"shape="round">Subir</ion-button>
 
+</ion-list>
   </ng-container>
 
 
   <ng-container *ngIf="loading">
     <div class="box-skeleton" *ngFor="let skeleton of [1]">
-      <ion-skeleton-text class="skeleton" [animated]="true" style="width: 100%"></ion-skeleton-text>
+      <ion-skeleton-text
+        class="skeleton"
+        [animated]="true"
+        style="width: 100%"
+      ></ion-skeleton-text>
     </div>
-  </ng-container>
+    </ng-container>
   
 </ion-content>

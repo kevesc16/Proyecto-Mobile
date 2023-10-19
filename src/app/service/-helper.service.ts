@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { AlertController, LoadingController } from '@ionic/angular';
+import { AlertController, LoadingController, ModalController, ToastController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,9 @@ export class HelperService {
   constructor(
     private alertService:AlertController,
     private loadingController:LoadingController,
-    private auth:AngularFireAuth
+    private auth:AngularFireAuth,
+    private toast: ToastController,
+    private modal: ModalController
 
     ) { }
 
@@ -81,6 +83,27 @@ async ConfirmarEmail(email:string): Promise<void>{
     console.error('Error al enviar confirmación', error);
     // Mostrar un mensaje de error al usuario
   }
+}
+async showToast(msg:string, duracion:number = 3000, position:"top" | "bottom" | "middle" = "bottom"){
+  var toast = await this.toast.create(
+  {
+    cssClass:"toastCss",
+    position: position,
+    color:'dark',
+    message:msg,
+    duration:duracion
+  })
+  await toast.present();
+  return toast;
+}
+async showModal(componente:any,props:any={},dismiss = false){
+  var modal = await this.modal.create({
+    cssClass:"cssModal",
+    component:componente,
+    componentProps:props,
+    backdropDismiss:dismiss
+  })
+  await modal.present();
 }
 
 }
