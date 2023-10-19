@@ -8,6 +8,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 })
 export class PerfilPage implements OnInit {
   usuario:any;
+  isModalOpen = false;
 
   constructor( 
     private storage:StorageService,
@@ -17,6 +18,9 @@ export class PerfilPage implements OnInit {
   ngOnInit() {
   this.cargarinfoUser();
 
+  }
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
   }
   async cargarinfoUser(){
     const user = await this.storage.obtenerUsuario();
