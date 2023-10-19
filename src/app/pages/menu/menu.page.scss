@@ -1,45 +1,48 @@
-.enabled{
-    background-color:cornflowerblue;
-    color: black;
-    opacity: 0.5;
+.enabled {
+  background-color: cornflowerblue;
+  color: black;
+  opacity: 0.5;
 }
-.disabled{
-    background-color: brown;
-    color: black;
-    opacity: 0.5;
+
+.disabled {
+  background-color: brown;
+  color: black;
+  opacity: 0.5;
 }
-.skeleton{
-    height: 55px;
+
+.skeleton {
+  height: 55px;
 }
-.box-skeleton{
-    padding-right:10px ;
-    padding-left:10px ;
+
+.box-skeleton {
+  padding-right: 10px;
+  padding-left: 10px;
 }
-#a{
+
+#a {
   text-align: center;
   vertical-align: super;
   align-items: center;
 }
-<<<<<<< HEAD
-ion-menu::part(backdrop) {
-    background-color: rgba(69, 204, 152, 0.247);
-=======
 
 ion-menu::part(backdrop) {
+  background-color: rgba(69, 204, 152, 0.247);
+
+
+  ion-menu::part(backdrop) {
     background-color: rgba(17, 149, 22, 0.678);
->>>>>>> main
+
   }
-  
+
   ion-menu::part(container) {
     border-radius: 0 20px 20px 0;
-  
-<<<<<<< HEAD
+
     box-shadow: 4px 0px 16px rgba(50, 116, 179, 0.795);
   }
-  .aloha{
+
+  .aloha {
     font-size: 50px;
-}
-=======
-    box-shadow: 4px 0px 16px rgba(146, 26, 179, 0.441);
   }
->>>>>>> main
+
+  box-shadow: 4px 0px 16px rgba(146, 26, 179, 0.441);
+}
