@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ion-content {
     background: transparent;
     display: flex;
@@ -33,3 +34,34 @@ ion-content {
     background: rgba(255, 255, 255, 0.1);
     margin: 10px 0;
   }
+=======
+.skeleton{
+    height: 300px;
+}
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  /* Clase para los elementos de entrada */
+  .input-item {
+    margin-bottom: 15px;
+  }
+  
+  /* Clase para el botón de envío */
+  .submit-button {
+    margin-top: 20px;
+  }
+  
+  /* Clase para el fondo de la página */
+  .fondomenu {
+    background-image: url(https://static.vecteezy.com/system/resources/previews/013/322/962/non_2x/dark-blue-polygonal-pattern-abstract-geometric-background-triangular-mosaic-perfect-for-website-mobile-app-advertisement-social-media-free-photo.jpeg); /* Reemplaza con la ruta de tu imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+  }
+
+>>>>>>> main

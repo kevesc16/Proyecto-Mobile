@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-title>Disponibilidad</ion-title>
     <ion-buttons slot="start">
-      <ion-back-button>Back</ion-back-button>
+      <ion-back-button></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -14,7 +14,13 @@
     </ion-toolbar>
   </ion-header>
 
+
   <ng-container *ngIf="!loading">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Patente</ion-label>
+        <ion-input type="text" [(ngModel)]="patente"></ion-input>
+      </ion-item>
     <ion-list>
       <ion-item>
         <ion-label position="floating">Patente</ion-label>
@@ -25,12 +31,24 @@
         <ion-label position="floating">Destino</ion-label>
         <ion-input type="text" [(ngModel)]="destino"></ion-input>
       </ion-item>
+      <ion-item>
+        <ion-label position="floating">Destino</ion-label>
+        <ion-input type="text" [(ngModel)]="destino"></ion-input>
+      </ion-item>
 
       <ion-item>
         <ion-label position="floating">Cantidad de Pasajeros</ion-label>
         <ion-input type="text" [(ngModel)]="Cpasajeros"></ion-input>
       </ion-item>
+      <ion-item>
+        <ion-label position="floating">Cantidad de Pasajeros</ion-label>
+        <ion-input type="text" [(ngModel)]="Cpasajeros"></ion-input>
+      </ion-item>
 
+      <ion-item>
+        <ion-label position="floating">Conductor</ion-label>
+        <ion-input type="text" [(ngModel)]="conductor"></ion-input>
+      </ion-item>
       <ion-item>
         <ion-label position="floating">Conductor</ion-label>
         <ion-input type="text" [(ngModel)]="conductor"></ion-input>
@@ -44,6 +62,7 @@
       <ion-button expand="full" class="btn" (click)="alerta()" shape="round">Subir</ion-button>
     </ion-list>
   </ng-container>
+
 
   <ng-container *ngIf="loading">
     <div class="box-skeleton" *ngFor="let skeleton of [1]">
