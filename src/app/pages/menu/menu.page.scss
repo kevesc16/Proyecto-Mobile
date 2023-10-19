@@ -1,13 +1,13 @@
 .enabled {
   background-color: cornflowerblue;
   color: black;
-  opacity: 0.5;
+  opacity: 0.8; /* Aumenté la opacidad para hacerlo más visible */
 }
 
 .disabled {
   background-color: brown;
   color: black;
-  opacity: 0.5;
+  opacity: 0.8; /* Aumenté la opacidad para hacerlo más visible */
 }
 
 .skeleton {
@@ -15,35 +15,22 @@
 }
 
 .box-skeleton {
-  padding-right: 10px;
-  padding-left: 10px;
+  padding: 10px; /* Modifiqué los valores para igualar los márgenes en todos los lados */
 }
 
 #a {
   text-align: center;
-  vertical-align: super;
-  align-items: center;
 }
 
 ion-menu::part(backdrop) {
-  background-color: rgba(69, 204, 152, 0.247);
+  background-color: rgba(149, 94, 18, 0.247);
+}
 
+ion-menu::part(container) {
+  border-radius: 0 20px 20px 0;
+  box-shadow: 4px 0px 16px rgba(50, 116, 179, 0.795);
+}
 
-  ion-menu::part(backdrop) {
-    background-color: rgba(17, 149, 22, 0.678);
-
-  }
-
-  ion-menu::part(container) {
-    border-radius: 0 20px 20px 0;
-
-    box-shadow: 4px 0px 16px rgba(50, 116, 179, 0.795);
-  }
-
-  .aloha {
-    font-size: 24px;
-  }
-
-
-  box-shadow: 4px 0px 16px rgba(146, 26, 179, 0.441);
+.aloha {
+  font-size: 24px;
 }

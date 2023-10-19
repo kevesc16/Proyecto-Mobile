@@ -1,34 +1,75 @@
-.fondomenu {
-    background-image: url(https://i.pinimg.com/736x/41/ce/ed/41ceed6b443531d18fb3d8793b660e3c.jpg);
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centra horizontalmente */
-    justify-content: center; /* Centra verticalmente */
+ion-content.fondomenu {
+  --background: url('https://i.pinimg.com/736x/41/ce/ed/41ceed6b443531d18fb3d8793b660e3c.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+.botonAtras{
+  --color: rgb(2, 1, 1);
+}
+ion-header {
+  background-color: transparent; /* Hace que el encabezado sea transparente */
+  ion-toolbar {
+    --background: rgb(28, 87, 76); /* Fondo transparente para el toolbar */
+    color: white; /* Color del texto del encabezado */
+  }
+}
+
+ion-title {
+  font-size: 1.5rem;
+}
+
+ion-content {
+  background-color: transparent; /* Hace que el contenido sea transparente */
+  .ion-padding {
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente para hacer el contenido más legible */
     padding: 20px;
-    height: 100vh;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center; /* Centra el contenido */
+  }
+
+  .mostrarD {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    --background: cornflowerblue; /* Cambia el color de fondo del botón */
+    --color: white; /* Cambia el color del texto del botón */
+    --border-radius: 10px; /* Agrega bordes redondeados al botón */
   }
   
-  .perfil-card {
-    width: 80%; /* Ancho del card */
-    margin-bottom: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra del card */
-  }
   
-  ion-avatar img {
-    width: 50px; /* Tamaño de la imagen del avatar */
-    height: 50px;
-    border-radius: 50%; /* Hace que la imagen del avatar sea circular */
+
+  ion-button:hover {
+    --background: #3697d4; /* Cambia el color de fondo al pasar el mouse sobre el botón */
   }
-  
-  ion-label {
-    font-weight: bold; /* Texto en negrita */
+}
+
+ion-modal {
+  background-color: transparent; /* Hace que el modal sea transparente */
+  ion-header {
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente para hacer el título del modal más legible */
+    ion-toolbar {
+      background-color: transparent; /* Hace que la barra de herramientas del modal sea transparente */
+    }
   }
-  
-  small {
-    color: #777; /* Color del texto pequeño */
+
+  ion-content {
+    background-color: transparent; /* Hace que el contenido del modal sea transparente */
+    .ion-padding {
+      background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente para hacer el contenido del modal más legible */
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
   }
-  
+}
+
+.perfil-card {
+  background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente para hacer las tarjetas del perfil más legibles */
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   ion-item {
-    padding: 10px;
+    cursor: pointer;
   }
-  
+}

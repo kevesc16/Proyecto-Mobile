@@ -1,51 +1,33 @@
-body {
-  margin: 0px;
-  padding: 0px;
-  font-family: Inter, sans-serif;
-  font-weight: 400;
-  font-size: 12px;
-  overflow: hidden;
-  text-size-adjust: none;
-  touch-action: pan-x pan-y;
-  overscroll-behavior: none;
+ion-content.fondomenu {
+  --background: url('https://i.pinimg.com/736x/41/ce/ed/41ceed6b443531d18fb3d8793b660e3c.jpg') no-repeat center center fixed;
+  background-size: cover;
 }
 
-
-
-.idEBRu {
-    text-align: center;
-    padding: 0px 10%;
-    display: flex;
-    flex-direction: column;
-    -webkit-box-pack: center;
-    justify-content: center;
-    width: 100%;
+ion-card {
+  background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente para hacer el contenido más legible */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-* {
-    box-sizing: border-box;
-}
-user agent stylesheet
-div {
-    display: block;
+.login-label {
+  font-size: 1.5rem;
+  text-align: center;
+  color: #3697d4;
 }
 
-body {
-    margin: 0px;
-    padding: 0px;
-    font-family: Inter, sans-serif;
-    font-weight: 400;
-    font-size: 12px;
-    overflow: hidden;
-    text-size-adjust: none;
-    touch-action: pan-x pan-y;
-    overscroll-behavior: none;
+ion-item {
+  margin: 10px 0;
 }
 
-:root {
-    font-size: 16px;
+ion-button {
+  margin-top: 10px;
+  --background: cornflowerblue; /* Cambia el color de fondo del botón */
+  --color: white; /* Cambia el color del texto del botón */
+  --border-radius: 10px; /* Agrega bordes redondeados al botón */
+  font-weight: bold;
 }
 
-::-webkit-scrollbar {
-    background-color: rgba(0, 0, 0, 0);
+ion-button:hover {
+  --background: #3697d4; /* Cambia el color de fondo al pasar el mouse sobre el botón */
 }

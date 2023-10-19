@@ -68,9 +68,22 @@ export class LoginPage implements OnInit {
       console.error('Error logging in:', error);
     this.helperService.showAlert('El correo electrónico o la contraseña son incorrectos.', 'Error');
     }
-    //guardar informacion del ususario
+    
+    this.email = '';
+    this.contrasena = '';
 
+  }
 
+  async resset(){
+    const loader = await this.helperService.showLoader("Cargando");
+    this.router.navigateByUrl('resetpass')
+    await loader.dismiss();
+    
+  }
+  async register(){
+    const loader= await this.helperService.showLoader("cargando");
+    this.router.navigateByUrl('registro')
+    await loader.dismiss();
   }
 
 
