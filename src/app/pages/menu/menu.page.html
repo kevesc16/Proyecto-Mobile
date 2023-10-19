@@ -72,14 +72,10 @@
         <!--ion-button (click)="play()">Play</!--ion-button>
   <ion-button (click)="pause()">Pause</ion-button>
   <ion-button-- (click)="stop()">Stop</ion-button-->
-      
 
-      <ng-container *ngIf="loading">
-        <div class="box-skeleton" *ngFor="let skeleton of [1,2]">
-          <ion-skeleton-text class="skeleton" [animated]="true" style="width: 100%"></ion-skeleton-text>
-        </div>
-      </ng-container>
 
-    </ion-content>
-
-</div>
+        <ng-container *ngIf="loading">
+          <div class="box-skeleton" *ngFor="let skeleton of [1,2]">
+            <ion-skeleton-text class="skeleton" [animated]="true" style="width: 100%"></ion-skeleton-text>
+          </div>
+        </ng-container>
