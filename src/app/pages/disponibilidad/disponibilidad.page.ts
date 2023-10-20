@@ -32,17 +32,43 @@ loading:boolean= true;
 
 }
 async agregarAuto(){
-  const auto=[{
-    costo:this.costo,
-    conductor:this.conductor,
-    marca:this.marca,
-    Cpasajeros:this.Cpasajeros,
-    destino:this.destino,
-    patente:this.patente
+  try{
+    if(this.costo==""){
+      this.helper.showAlert("Debe ingresar un costo","Error")
+      return;
+    }
+    if(this.marca==""){
+      this.helper.showAlert("Debe ingresar una marca","Error")
+      return;
+    }
+    if(this.conductor==""){
+      this.helper.showAlert("Debe ingresar un conductor","Error")
+      return;
+    }
+    if(this.Cpasajeros==""){
+      this.helper.showAlert("Debe ingresar una cantidad de pasajeros","Error")
+      return;
+    }
+    if(this.destino==""){
+      this.helper.showAlert("Debe ingresar un destino","Error")
+      return;
+    }
+    if(this.patente==""){
+      this.helper.showAlert("Debe ingresar una patente","Error")
+      return;
+    }
+    
+    const auto=[{
+      costo:this.costo,
+      conductor:this.conductor,
+      marca:this.marca,
+      Cpasajeros:this.Cpasajeros,
+      destino:this.destino,
+      patente:this.patente
 
-  }]
-  await this.storage.agregarAuto(auto);
-  this.helper.showAlert("Uber Fruna Disponibilizado","Realizado")
-  this.router.navigate(['/menu']);
+    }]
+    await this.storage.agregarAuto(auto);
+    this.helper.showAlert("Uber Fruna Disponibilizado","Realizado")
+    this.router.navigate(['/menu']);}catch{}
 }
 }

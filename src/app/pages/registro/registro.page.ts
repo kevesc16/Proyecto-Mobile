@@ -42,7 +42,8 @@ export class RegistroPage implements OnInit {
   async cargarRegion() {
     const req = await this.location.getRegion();
     this.regiones = req.data;
-    console.log('REGION', this.regiones);
+    /*console.log('REGION', this.regiones);
+    console.log('COMUNA', this.comunas);*/
   }
 
   async cargarComuna() {
@@ -51,6 +52,7 @@ export class RegistroPage implements OnInit {
   }
 
   ngOnInit() {
+    this.obtenerRegion;
     setTimeout(this.simularCargaMenu, 1000);
     this.cargarRegion();
   }
@@ -155,7 +157,8 @@ export class RegistroPage implements OnInit {
         await this.helper.showAlert('Debe ingresar una contraseña', 'Error');
       }
     }
-
+    this.nombreRegion='';
+    this.nombreComuna='';
     this.nombre = '';
     this.contrasena = '';
     this.correo = '';
