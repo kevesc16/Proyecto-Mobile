@@ -29,15 +29,6 @@ export class FormularioPage implements OnInit {
     this.cargarInfoAuto();
     setTimeout(this.simularCargaMenu,1500);
   }
-  /*async cargarInfoAuto(){
-    const auto= await this.storage.obtenerAuto();
-    const autoFilter = auto.filter(e=> e.patente== auto[0].patente);
-    await autoFilter[0].patente;
-    console.log("AutoPatente: ",autoFilter[0].patente);
-    this.autos=(await this.storage.obtenerAuto()).filter(e=> e.patente== auto[0].patente);
-    console.log("Auto filtrado",this.autos);
-
-  }*/
   async cargarInfoAuto() {
     const autos = await this.storage.obtenerAuto();
     console.log("Autos:", autos);
@@ -48,7 +39,7 @@ export class FormularioPage implements OnInit {
     let confirmar= await this.helper.showConfirm("Desea confirmar el viaje?","Shi","Ño")
     if(confirmar== true){
       this.helper.showAlert("Su UberFruna ha sido contactado!","Aceptar")
-      this.router.navigateByUrl('menu')
+      this.router.navigate(['/menu']);
     }
   }
 

@@ -1,22 +1,36 @@
-.enabled{
-    background-color:cornflowerblue;
-    color: black;
-    opacity: 0.5;
+.enabled {
+  background-color: cornflowerblue;
+  color: black;
+  opacity: 0.8; /* Aumenté la opacidad para hacerlo más visible */
 }
-.disabled{
-    background-color: brown;
-    color: black;
-    opacity: 0.5;
+
+.disabled {
+  background-color: brown;
+  color: black;
+  opacity: 0.8; /* Aumenté la opacidad para hacerlo más visible */
 }
-.skeleton{
-    height: 55px;
+
+.skeleton {
+  height: 55px;
 }
-.box-skeleton{
-    padding-right:10px ;
-    padding-left:10px ;
+
+.box-skeleton {
+  padding: 10px; /* Modifiqué los valores para igualar los márgenes en todos los lados */
 }
-#a{
+
+#a {
   text-align: center;
-  vertical-align: super;
-  align-items: center;
+}
+
+ion-menu::part(backdrop) {
+  background-color: rgba(149, 94, 18, 0.247);
+}
+
+ion-menu::part(container) {
+  border-radius: 0 20px 20px 0;
+  box-shadow: 4px 0px 16px rgba(50, 116, 179, 0.795);
+}
+
+.aloha {
+  font-size: 24px;
 }

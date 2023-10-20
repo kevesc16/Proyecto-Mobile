@@ -44,6 +44,7 @@ export class MenuPage implements OnInit {
   }
   simularCargaMenu =()=>
   this.loading= false;
+
   ngAfterViewInit() {
     this.mostrarToastOpSystem();
     this.animation = this.animationCtrl
@@ -72,7 +73,7 @@ export class MenuPage implements OnInit {
     {
       id:2,
       titulo:"Solicitar",
-      url:"/"+"menu/formulario",
+      url:"/"+"formulario",
       icono:"rocket-outline",
 
     }
@@ -95,31 +96,35 @@ await this.helper.showToast("Bienvenid@ "+userFilter[0].nombre);
 async mostrarToastOpSystem(){
     const model=await Device.getInfo();
     const modelName= model.model;
-    //console.log("hola",modelName);
+    console.log("hola",modelName);
 
-      if (modelName=="iPhone"){
+      if (modelName=="iPhone"&&"iPad"){
         await this.helper.showToast("Todo bien en casa?? Por qué usas: "+modelName, 3000, "middle");
 
       }else{await this.helper.showToast("Podemos ser amigos", 3000, "middle")}
     }
 
 
- async logOut() {
+async logOut() {
     var confirmar = await this.helper.showConfirm("Desea cerrar la sesión actual?","Confirmar","Cancelar");
     if (confirmar == true) {
       await this.auth.signOut();
       await this.router.navigateByUrl("login");
     }
   }
+
   toggle(){
     this.menuCtrl.toggle();
   }
+
   cerrarMenu(){
     this.menuCtrl.close();
   }
+
   perfil(){
-    this.router.navigateByUrl('perfil');
+    this.router.navigateByUrl("perfil");
   }
+
   menuUno() {
     var parametroN1 = 123456;
     this.router.navigateByUrl(parametroN1 + '/menu-uno');
