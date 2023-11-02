@@ -57,7 +57,7 @@ async agregarAuto(){
       this.helper.showAlert("Debe ingresar una patente","Error")
       return;
     }
-    
+
     const auto=[{
       costo:this.costo,
       conductor:this.conductor,
@@ -67,8 +67,16 @@ async agregarAuto(){
       patente:this.patente
 
     }]
+    console.log("1111111111", (await this.storage.obtenerAuto()).filter( e => e.patente == this.patente));
+
+    if((await this.storage.obtenerAuto()).filter( e => e.patente == this.patente).length > 0){
+      this.helper.showAlert("Patente ya existe","Error")
+      return;
+    }
     await this.storage.agregarAuto(auto);
     this.helper.showAlert("Uber Fruna Disponibilizado","Realizado")
-    this.router.navigate(['/menu']);}catch{}
+    this.router.navigate(['menu/:correo']);}catch{
+    }
+    
 }
 }

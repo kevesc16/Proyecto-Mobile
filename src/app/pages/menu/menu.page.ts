@@ -99,9 +99,9 @@ async mostrarToastOpSystem(){
     console.log("hola",modelName);
 
       if (modelName=="iPhone"&&"iPad"){
-        await this.helper.showToast("Todo bien en casa?? Por qué usas: "+modelName, 3000, "middle");
+        await this.helper.showToast("Todo bien en casa?? Por qué usas: "+modelName, 3000, "top");
 
-      }else{await this.helper.showToast("Podemos ser amigos", 3000, "middle")}
+      }else{await this.helper.showToast("Podemos ser amigos", 3000, "top")}
     }
 
 
