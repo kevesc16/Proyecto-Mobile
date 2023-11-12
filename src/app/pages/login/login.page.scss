@@ -5,16 +5,23 @@ ion-card {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+  ion-card-content {
+    border-bottom: 1px solid black; /* Agrega una línea negra en la parte inferior de ion-card-content */
+    margin-bottom: 10px; /* Puedes ajustar el valor según tus preferencias para dar espacio entre la línea y el contenido */
+  }
 }
 
 .login-label {
   font-size: 1.5rem;
   text-align: center;
-  color: #3697d4;
+  color: #404040;
 }
 
 ion-item {
   margin: 10px 0;
+  --background: #555843;
+  border-radius: 10px;
 }
 
 ion-button {
@@ -27,4 +34,8 @@ ion-button {
 
 ion-button:hover {
   --background: #3697d4; /* Cambia el color de fondo al pasar el mouse sobre el botón */
+}
+
+.btn{
+  --background:#555843 ;
 }

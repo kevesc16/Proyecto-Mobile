@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 import { Comuna } from 'src/app/models/comuna';
 import { Region } from 'src/app/models/region';
 import { HelperService } from 'src/app/service/-helper.service';
@@ -35,8 +36,14 @@ export class RegistroPage implements OnInit {
     private storage: StorageService,
     private auth: AngularFireAuth,
     private location: LocationService,
-    private store: FirestoreService
+    private store: FirestoreService,
+    private navCtrl: NavController
   ) {}
+
+  goBack() {
+    this.navCtrl.back();
+  }
+
   simularCargaMenu = () => (this.loading = false);
 
   async cargarRegion() {
