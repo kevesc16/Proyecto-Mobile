@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 import { HelperService } from 'src/app/service/-helper.service';
 import { StorageAutoService } from 'src/app/service/storage-auto.service';
 
@@ -20,10 +21,15 @@ export class FormularioPage implements OnInit {
     private helper:HelperService,
     private storage:StorageAutoService,
     private auth:AngularFireAuth,
+    private navCtrl: NavController
 
   ) { }
   simularCargaMenu =()=>
   this.loading= false;
+  
+  goBack() {
+    this.navCtrl.back();
+  }
 
   ngOnInit() {
     this.cargarInfoAuto();
@@ -39,7 +45,7 @@ export class FormularioPage implements OnInit {
     let confirmar= await this.helper.showConfirm("Desea confirmar el viaje?","Shi","Ño")
     if(confirmar== true){
       this.helper.showAlert("Su UberFruna ha sido contactado!","Aceptar")
-      this.router.navigate(['menu/:correo']);
+      this.router.navigate(['/menu']);
     }
   }
 

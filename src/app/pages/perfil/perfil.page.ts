@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
 import { StorageService } from '../../service/storage.service';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-perfil',
@@ -13,18 +13,25 @@ export class PerfilPage implements OnInit {
 
   usuario: any;
   isModalOpen = false;
+  infoIcon = 'person-outline';
 
   constructor(
     private storage: StorageService,
-    private auth: AngularFireAuth
+    private auth: AngularFireAuth,
+    private navCtrl: NavController
   ) { }
-
+  goBack() {
+    this.navCtrl.back();
+  }
   ngOnInit() {
     this.cargarinfoUser();
 
   }
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
+    if(isOpen){
+      this.navCtrl.navigateForward('/perfil');
+    }
   }
   async cargarinfoUser() {
     const user = await this.storage.obtenerUsuario();

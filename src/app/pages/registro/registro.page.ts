@@ -26,8 +26,8 @@ export class RegistroPage implements OnInit {
   nombreComuna: string = '';
   idRegion: number = 0;
   idComuna: number = 0;
-  regionSeleccionado: number = 0;
-  comunaSeleccionada: number= 0;
+  regionSeleccionado: string = '';
+  comunaSeleccionada: string = '';
 
   constructor(
     private helper: HelperService,
@@ -42,7 +42,8 @@ export class RegistroPage implements OnInit {
   async cargarRegion() {
     const req = await this.location.getRegion();
     this.regiones = req.data;
-
+    /*console.log('REGION', this.regiones);
+    console.log('COMUNA', this.comunas);*/
   }
 
   async cargarComuna() {
@@ -66,11 +67,9 @@ export class RegistroPage implements OnInit {
       this.router.navigateByUrl('login');
     }
   }
-  async obtenerRegion()
-  {
-    this.nombreRegion= this.regiones.filter(e => e.id== this.regionSeleccionado)[0].nombre
-    this.nombreComuna= this.comunas.filter(e => e.id== this.comunaSeleccionada)[0].nombre
-
+  async obtenerRegion() {
+    this.nombreRegion = this.regiones[this.idRegion].nombre;
+    this.nombreComuna = this.comunas[this.idComuna].nombre;
     console.log('region', this.nombreRegion);
     console.log('Comuna', this.nombreComuna);
   }
@@ -158,6 +157,10 @@ export class RegistroPage implements OnInit {
         await this.helper.showAlert('Debe ingresar una contraseña', 'Error');
       }
     }
-
+    this.nombreRegion='';
+    this.nombreComuna='';
+    this.nombre = '';
+    this.contrasena = '';
+    this.correo = '';
   }
 }

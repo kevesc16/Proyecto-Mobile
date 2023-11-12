@@ -1,36 +1,39 @@
-.enabled {
-  background-color: cornflowerblue;
-  color: black;
-  opacity: 0.8; /* Aumenté la opacidad para hacerlo más visible */
-}
-
-.disabled {
-  background-color: brown;
-  color: black;
-  opacity: 0.8; /* Aumenté la opacidad para hacerlo más visible */
-}
-
 .skeleton {
   height: 55px;
 }
 
-.box-skeleton {
-  padding: 10px; /* Modifiqué los valores para igualar los márgenes en todos los lados */
+ion-card {
+ --background:rgb(235, 226, 207);
+ margin-bottom: 16 px;
 }
 
-#a {
-  text-align: center;
+.colorcard{
+  color: rgb(10, 10, 9);
+  margin-left: 16px;
+  margin-top: 42px;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  padding: 8px;
+}
+
+.card-container{
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  margin-top: 40px;
 }
 
 ion-menu::part(backdrop) {
-  background-color: rgba(149, 94, 18, 0.247);
+  background-color: rgba(110, 215, 24, 0.927)
 }
 
 ion-menu::part(container) {
   border-radius: 0 20px 20px 0;
-  box-shadow: 4px 0px 16px rgba(50, 116, 179, 0.795);
-}
 
-.aloha {
-  font-size: 24px;
+  box-shadow: 4px 0px 16px rgba(130, 209, 26, 0.766)
 }

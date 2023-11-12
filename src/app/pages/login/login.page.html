@@ -1,9 +1,10 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar class="toolbarcolor">
     <ion-title>Uber Fruna</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content [fullscreen]="true" class="fondomenu">
+
+<ion-content [fullscreen]="true" class="colorFondo">
   <ion-card>
     <ion-card-content>
       <ion-label class="login-label">Iniciar sesión</ion-label>
@@ -16,6 +17,7 @@
         <ion-input [(ngModel)]="contrasena" type="password"></ion-input>
       </ion-item>
     </ion-card-content>
+    
     <ion-row>
       <ion-col size="12" size-md="4">
         <ion-button (click)="login()" expand="full" shape="round">Acceder</ion-button>

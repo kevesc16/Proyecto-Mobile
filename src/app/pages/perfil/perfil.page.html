@@ -1,18 +1,25 @@
+<!--cabecera-->
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Perfil</ion-title>
+  <ion-toolbar class="toolbarcolor">
     <ion-buttons slot="start">
-      <ion-button>
-        <ion-back-button class="botonAtras">Back</ion-back-button>
-        <ion-icon name="Back"></ion-icon>
+      <ion-button class="iconbackcolor" (click)="goBack()">
+        <ion-icon name="chevron-back-circle-outline" ></ion-icon>
       </ion-button>
     </ion-buttons>
+    <ion-title>Perfil</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content [fullscreen]="true" class="fondomenu">
-  <ion-button expand="block" (click)="setOpen(true)" class="mostrarD">Mostrar datos del Usuario</ion-button>
+<!--termino cabecera-->
+<!--contenido-->
+<!--boton mas info-->
+<ion-content [fullscreen]="true" class="colorFondo">
+  <ion-button expand="block" (click)="setOpen(true)" class="mostrarD">Mas info...
+    <ion-icon [name]="infoIcon" slot="icon-only"></ion-icon>
+  </ion-button>
   <ion-modal [isOpen]="isModalOpen">
     <ng-template>
+    <!--termino boton mas info-->
+      <!--boton-->
       <ion-header>
         <ion-toolbar>
           <ion-buttons slot="start">
@@ -20,6 +27,8 @@
           </ion-buttons>
         </ion-toolbar>
       </ion-header>
+      <!--boton termino-->
+      <!--mas info-->
       <ion-content class="ion-padding">
         <ion-card *ngFor="let i of usuario" class="perfil-card">
           <ion-item (click)="setOpen(false)">
@@ -34,6 +43,8 @@
           </ion-item>
         </ion-card>
       </ion-content>
+      <!--mas info termino-->
     </ng-template>
   </ion-modal>
 </ion-content>
+<!--termino contenido-->

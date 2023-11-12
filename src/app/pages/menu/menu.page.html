@@ -1,5 +1,6 @@
+<!--Cabecera-->
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar class="toolbarcolor">
     <ion-button (click)="logOut()" slot="end">
       <ion-icon name="log-out-outline"></ion-icon>
     </ion-button>
@@ -9,10 +10,12 @@
     <ion-title>Menú</ion-title>
   </ion-toolbar>
 </ion-header>
-  <ion-menu contentId="main-content">
+<!--Cabecera termino-->
+<!--Menu Perfil-->
+  <ion-menu contentId="main-content" class="colorFondo">
     <ion-header>
-      <ion-toolbar>
-        <ion-icon class="aloha" name="close-outline" slot="end" (click)="cerrarMenu()"></ion-icon>
+      <ion-toolbar class="toolbarcolor">
+        <ion-icon class="aloha" name="close-circle-outline" slot="end" (click)="cerrarMenu()"></ion-icon>
         <ion-title>Menú</ion-title>
       </ion-toolbar>
     </ion-header>
@@ -25,6 +28,8 @@
         </ion-list>
     </ion-content>
   </ion-menu>
+<!--Menu Perfil termino-->
+<!--Toolbar perfil menu-->
 <div class="ion-page" id="main-content">
   <ion-header>
     <ion-toolbar>
@@ -35,23 +40,27 @@
     </ion-toolbar>
   </ion-header>
 </div>
-<ion-content [fullscreen]="true" class="fondomenu">
+<!--Tollbar menu termino-->
+<!--Botones menu-->
+<ion-content [fullscreen]="true" class="colorFondo" >
 <ng-container *ngIf="!loading">
-  <ng-container *ngFor="let m of menuArray">
-    <ion-card [routerLink]="m.url" *ngIf="m.disabled" class="disabled">
-      <div class="box">
-        <ion-icon id="a" [name]="m.icono" style="font-size: 36px"></ion-icon>
-        <h3 id="a">{{m.titulo}}</h3>
-      </div>
-    </ion-card>
-    <ion-card [routerLink]="m.url" *ngIf="!m.disabled" class="enabled" >
-      <div class="box">
-        <ion-icon id="a" [name]="m.icono" style="font-size: 36px"></ion-icon>
-        <h3 id="a">{{m.titulo}}</h3>
-      </div>
-    </ion-card>
-  </ng-container>
+  <div class="card-container">
+  <ng-container *ngFor="let m of menuArray" >
+      <ion-card [routerLink]="m.url" *ngIf="m.disabled" >
+        <div class="box">
+          <ion-icon id="a" [name]="m.icono" style="font-size: 36px" class="colorcard"></ion-icon>
+          <h3 id="a" class="colorcard">{{m.titulo}}</h3>
+        </div>
+      </ion-card>
 
+      <ion-card [routerLink]="m.url" *ngIf="!m.disabled"  >
+        <div class="box">
+          <ion-icon id="a" [name]="m.icono" style="font-size: 36px" class="colorcard"></ion-icon>
+          <h3 id="a" class="colorcard">{{m.titulo}}</h3>
+        </div>
+      </ion-card>
+  </ng-container>
+  </div>
 </ng-container>
   <ng-container *ngIf="loading">
   <div class="box-skeleton" *ngFor="let skeleton of [1,2]">
@@ -63,3 +72,4 @@
   </div>
   </ng-container>
 </ion-content>
+<!--Botones menu termino-->

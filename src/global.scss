@@ -28,3 +28,26 @@
 ion-content.fondomenu {
   --background:url(https://i.pinimg.com/736x/41/ce/ed/41ceed6b443531d18fb3d8793b660e3c.jpg);
 }
+
+@font-face {
+  font-family: "titulo";
+  src: url('/assets/fonts/Poppins-Black.ttf');
+}
+@font-face {
+  font-family: "subtitulo";
+  src: url('/assets/fonts/Poppins-Medium.ttf');
+}
+@font-face {
+  font-family: "texto";
+  src: url('/assets/fonts/Poppins-Light.ttf');
+}
+
+.colorFondo{
+  --background:#555843;
+}
+.toolbarcolor{
+  --background:#444636;
+}
+.iconbackcolor{
+  --background:#fff;
+}

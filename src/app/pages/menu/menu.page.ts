@@ -42,6 +42,9 @@ export class MenuPage implements OnInit {
 
 
   }
+  closemenu(){
+    this.menuCtrl.close();
+  }
   simularCargaMenu =()=>
   this.loading= false;
 
@@ -67,14 +70,14 @@ export class MenuPage implements OnInit {
         id:1,
         titulo:"Disponibilizar",
         url:"/"+"disponibilidad",
-        icono:"speedometer-outline",
+        icono:"search-outline",
 
     },
     {
       id:2,
       titulo:"Solicitar",
       url:"/"+"formulario",
-      icono:"rocket-outline",
+      icono:"information-outline",
 
     }
 
@@ -99,9 +102,9 @@ async mostrarToastOpSystem(){
     console.log("hola",modelName);
 
       if (modelName=="iPhone"&&"iPad"){
-        await this.helper.showToast("Todo bien en casa?? Por qué usas: "+modelName, 3000, "top");
+        await this.helper.showToast("Todo bien en casa?? Por qué usas: "+modelName, 3000, "middle");
 
-      }else{await this.helper.showToast("Podemos ser amigos", 3000, "top")}
+      }else{await this.helper.showToast("Podemos ser amigos", 3000, "middle")}
     }
 
 

@@ -1,19 +1,23 @@
+<!--cabecera-->
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title size="medium">Solicitar Auto</ion-title>
+  <ion-toolbar class="tituloF">
+    <ion-title style="color: red;">Solicitar Auto</ion-title>
     <ion-buttons slot="start">
       <ion-back-button id="back">Back</ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
-<ion-content [fullscreen]="true" class="fondomenu">
+<!--cabecera termino-->
+<!--contenido-->
+<ion-content [fullscreen]="true" class="colorFondo">
+  <!--cabecera cont-->
   <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="medium">Autos Disponibles</ion-title>
+    <ion-toolbar class="toolbarcolor">
+      <ion-title size="medium" class="iconbackcolor">Autos Disponibles</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content>
+  <!--termino cont-->
+  <ion-content class="colorFondo">
     <ion-item *ngFor="let i of autos">
       <ion-card-content (click)="alerta()">
         {{'Conductor:'+' '+ i.conductor }} <br />
@@ -35,3 +39,4 @@
     </div>
   </ng-container>
 </ion-content>
+<!--termino contenido-->

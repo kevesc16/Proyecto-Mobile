@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 import { HelperService } from 'src/app/service/-helper.service';
 import { StorageAutoService } from 'src/app/service/storage-auto.service';
 
@@ -16,10 +17,13 @@ Cpasajeros:string="";
 destino:string="";
 patente:string="";
 loading:boolean= true;
+navCtrl: any;
+
   constructor(
     private helper:HelperService,
     private  router:Router,
-    private storage: StorageAutoService
+    private storage: StorageAutoService,
+    private navCrtl: NavController
 
     ) { }
     simularCargaMenu =()=>
@@ -28,8 +32,10 @@ loading:boolean= true;
   ngOnInit() {
     setTimeout(this.simularCargaMenu,1000);
   }
+  goBack() {
+    this.navCtrl.back();
+  }
   alerta(){
-
 }
 async agregarAuto(){
   try{
@@ -57,7 +63,7 @@ async agregarAuto(){
       this.helper.showAlert("Debe ingresar una patente","Error")
       return;
     }
-
+    
     const auto=[{
       costo:this.costo,
       conductor:this.conductor,
@@ -67,16 +73,8 @@ async agregarAuto(){
       patente:this.patente
 
     }]
-    console.log("1111111111", (await this.storage.obtenerAuto()).filter( e => e.patente == this.patente));
-
-    if((await this.storage.obtenerAuto()).filter( e => e.patente == this.patente).length > 0){
-      this.helper.showAlert("Patente ya existe","Error")
-      return;
-    }
     await this.storage.agregarAuto(auto);
     this.helper.showAlert("Uber Fruna Disponibilizado","Realizado")
-    this.router.navigate(['menu/:correo']);}catch{
-    }
-    
+    this.router.navigate(['/menu']);}catch{}
 }
 }

@@ -1,11 +1,6 @@
-ion-content.fondomenu {
-  --background: url(https://i.pinimg.com/736x/41/ce/ed/41ceed6b443531d18fb3d8793b660e3c.jpg) no-repeat center center fixed;
-  background-size: cover;
-}
-
 ion-title {
   text-align: center;
-  margin-top: 2rem; /* Ajusta el margen superior a tu preferencia */
+  margin-top: 5rem; /* Ajusta el margen superior a tu preferencia */
 }
 
 ion-item {
@@ -22,12 +17,14 @@ ion-card-content {
   text-align: center;
 }
 
-.box-skeleton {
-  padding: 1rem;
-  background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente para mayor legibilidad */
-  border-radius: 10px;
-  margin: 1rem auto; /* Espaciado entre elementos */
-}
 #back{
   --color: white;
+}
+ion-toolbar{
+  --background:transparent;
+}
+
+ion-title {
+  --color: black;
+
 }
