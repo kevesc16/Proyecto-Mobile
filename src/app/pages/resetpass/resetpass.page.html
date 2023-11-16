@@ -1,34 +1,35 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Recuperar Contraseña</ion-title>
-    <ion-buttons slot="start">
-      <ion-back-button>Back</ion-back-button>
-    </ion-buttons>
+<!--cabecera-->
+<ion-header>
+  <ion-toolbar class="toolbarcolor">
+    <ion-title class="text-center">Recuperar contraseña</ion-title>
+      <ion-buttons slot="start" (click)="goBack()">
+        <ion-icon name="chevron-back-circle-outline"></ion-icon>
+      </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Recuperar Contraseña</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
+<!--cabecera termino-->
+<!--contenido-->
   <ng-container *ngIf="!loading">
+
+    <div class="h3titulo">
+        <h3>Ingresa tu correo para cambiar tu contraseña</h3>
+    </div>
+
     <ion-item>
-      <h3>Ingresa tu correo para cambiar tu contraseña</h3>
+      <ion-label position="floating">Correo</ion-label>
+      <ion-input type="email" [(ngModel)]="correo"></ion-input>
     </ion-item>
-  <ion-item>
-    <ion-label position="floating">Correo</ion-label>
-    <ion-input type="email" [(ngModel)]="correo"></ion-input>
-  </ion-item>
 
 
 
-  <ion-content>
-    <ion-button class="btn" (click)="conf()"shape="round">enviar</ion-button>
-  </ion-content>
+    <ion-content>
+      <div class="ion-text-center">
+        <ion-button class="btn" (click)="conf()"shape="round">enviar</ion-button>
+      </div>
+    </ion-content>
   </ng-container>
+
+<!--skeleto-->
   <ng-container *ngIf="loading">
     <div class="box-skeleton" *ngFor="let skeleton of [1]">
       <ion-skeleton-text
@@ -38,4 +39,6 @@
       ></ion-skeleton-text>
     </div>
     </ng-container>
-</ion-content>
+
+
+<!--contenido t-->

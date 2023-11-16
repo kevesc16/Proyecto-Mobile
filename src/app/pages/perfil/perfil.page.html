@@ -3,10 +3,11 @@
   <ion-toolbar class="toolbarcolor">
     <ion-buttons slot="start">
       <ion-button class="iconbackcolor" (click)="goBack()">
-        <ion-icon name="chevron-back-circle-outline" ></ion-icon>
+        <ion-icon name="chevron-back-circle-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>Perfil</ion-title>
+    <ion-title class="text-center">Perfil</ion-title>
+    <ion-buttons slot="end"></ion-buttons>
   </ion-toolbar>
 </ion-header>
 <!--termino cabecera-->
@@ -29,16 +30,31 @@
       </ion-header>
       <!--boton termino-->
       <!--mas info-->
-      <ion-content class="ion-padding">
+      <ion-content class="colorfondo">
         <ion-card *ngFor="let i of usuario" class="perfil-card">
           <ion-item (click)="setOpen(false)">
             <div>
-              {{"Nombre: "+ ' ' +i.nombre}}<br>
-              {{"Correo: "+ ' ' +i.correo}}<br>
-              {{"Nacionalidad: "+ ' ' +i.nacionalidad}}<br>
-              {{"Comuna: "+ ' ' +i.comuna}}<br>
+              {{"Nombre: "+ ' ' +i.nombre}}
+            </div>
+          </ion-item>
+          <ion-item (click)="setOpen(false)">
+            <div>
+              {{"Correo: "+ ' ' +i.correo}}
+            </div>
+          </ion-item>
+          <ion-item (click)="setOpen(false)">
+            <div>
+              {{"Nacionalidad: "+ ' ' +i.nacionalidad}}
+            </div>
+          </ion-item>
+          <ion-item (click)="setOpen(false)">
+            <div>
+              {{"Comuna: "+ ' ' +i.comuna}}
+            </div>
+          </ion-item>
+          <ion-item (click)="setOpen(false)">
+            <div>
               {{"Region: "+ ' ' +i.region}}
-
             </div>
           </ion-item>
         </ion-card>

@@ -1,22 +1,14 @@
 <!--cabecera-->
 <ion-header>
   <ion-toolbar class="toolbarcolor">
-    <ion-buttons slot="start">
-      <ion-back-button class="iconbackcolor" (click)="goBack()">
-        <ion-icon name="chevron-back-circle-outline" ></ion-icon>
-      </ion-back-button>
-    </ion-buttons>
+    <ion-title class="text-center">Disponibilidad</ion-title>
+      <ion-buttons slot="start" (click)="goBack()">
+        <ion-icon name="chevron-back-circle-outline"></ion-icon>
+      </ion-buttons>
   </ion-toolbar>
 </ion-header>
 <!--cabecera termino-->
-<!--titulo disponibilidad-->
 <ion-content [fullscreen]="true" class="colorFondo">
-  <ion-header collapse="condense">
-    <ion-toolbar class="tituloD">
-      <ion-title size="large">Disponibilidad</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <!--titulo disponibilidad termino-->
 <!--botones -->
   <ng-container *ngIf="!loading">
     <ion-list>

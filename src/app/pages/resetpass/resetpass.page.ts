@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 import { HelperService } from 'src/app/service/-helper.service';
 
 
@@ -21,13 +22,16 @@ loading:boolean= true;
     private helper:HelperService,
     private router:Router,
     private auth: AngularFireAuth,
-
-
-
-
+    private navCtrl: NavController
     ) { }
+    
+    goBack() {
+      this.navCtrl.back();
+    }
+  
     simularCargaMenu =()=>
     this.loading= false;
+
   ngOnInit() {
     setTimeout(this.simularCargaMenu,1500);
   }

@@ -1,7 +1,7 @@
 <!--cabecera-->
 <ion-header>
   <ion-toolbar class="toolbarcolor">
-    <ion-title>registro</ion-title>
+    <ion-title class="text-center">Registro</ion-title>
       <ion-buttons slot="start" (click)="goBack()">
         <ion-icon name="chevron-back-circle-outline"></ion-icon>
       </ion-buttons>
@@ -9,14 +9,15 @@
 </ion-header>
 <!--cabecera termino-->
 <!--contenido-->
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="colorFondo">
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Registro</ion-title>
     </ion-toolbar>
   </ion-header>
   <!--contenido-->
-  <ng-container *ngIf="!loading">
+  <div class="center-container" *ngIf="!loading">
+  <ng-container>
   <ion-item>
     <ion-label position="floating">Nombre</ion-label>
     <ion-input type="text" [(ngModel)]="nombre"></ion-input>
@@ -33,22 +34,26 @@
     <ion-label position="floating">Contraseña</ion-label>
     <ion-input type="password" [(ngModel)]="contrasena"></ion-input>
   </ion-item>
-  <ion-list>
-    <ion-item>
+  <!--ion selects-->
+  <ion-list >
+    <ion-item >
       <ion-select (ionChange)="cargarComuna()" placeholder="Seleccione region" [(ngModel)]="regionSeleccionado">
         <ion-select-option [value]="i.id" *ngFor="let i of regiones">{{i.nombre}}</ion-select-option>
       </ion-select>
     </ion-item>
   </ion-list>
-  <ion-list>
-    <ion-item>
+  
+  <ion-list >
+    <ion-item >
       <ion-select placeholder="Seleccione comuna" [(ngModel)]="comunaSeleccionada">
         <ion-select-option [value]="i.id" *ngFor="let i of comunas">{{i.nombre}}</ion-select-option>
       </ion-select>
     </ion-item>
   </ion-list>
-  <ion-button  (click)="registro()"  shape="round">Registrar</ion-button>
+  <!--ion selects-termino-->
+  <ion-button class="color" (click)="registro()"  shape="round">Registrar</ion-button>
 </ng-container>
+</div>
 <!--contenido-->
 <!--skeleto-->
 <ng-container *ngIf="loading">

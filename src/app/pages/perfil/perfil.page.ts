@@ -20,19 +20,23 @@ export class PerfilPage implements OnInit {
     private auth: AngularFireAuth,
     private navCtrl: NavController
   ) { }
+
   goBack() {
     this.navCtrl.back();
   }
+
   ngOnInit() {
     this.cargarinfoUser();
-
   }
+
+
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
     if(isOpen){
       this.navCtrl.navigateForward('/perfil');
     }
   }
+
   async cargarinfoUser() {
     const user = await this.storage.obtenerUsuario();
     const userFirebaseEmail = await this.auth.currentUser;
@@ -45,4 +49,7 @@ export class PerfilPage implements OnInit {
     console.log("USUARIO FILTRADO", this.usuario);
 
   }
+  
 }
+
+
