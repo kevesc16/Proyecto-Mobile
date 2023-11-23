@@ -1,5 +1,6 @@
 .skeleton{
-    height: 400px;
+    height: 550px;
+    margin-top: 30px;
 }
 ion-item {
     margin: 10px 0;
@@ -9,12 +10,13 @@ ion-item {
     border: 1px solid #2e2e2e;
     width: calc(100% - 20px);
 }
-.center-container {
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     height: 100vh; /* O ajusta la altura según tus necesidades */
+    margin-top: 30px;
   }
 
 .color{

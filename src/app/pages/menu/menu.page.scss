@@ -29,11 +29,20 @@ ion-card {
 }
 
 ion-menu::part(backdrop) {
-  background-color: rgba(110, 215, 24, 0.927)
+  background-color: rgba(68, 92, 49, 0.927)
 }
 
 ion-menu::part(container) {
   border-radius: 0 20px 20px 0;
 
-  box-shadow: 4px 0px 16px rgba(130, 209, 26, 0.766)
+  box-shadow: 4px 0px 16px rgba(72, 95, 42, 0.766)
+}
+.ion-padding{
+  --background: linear-gradient(#555843, rgb(6, 7, 3)) ;
+}
+.itemPerfil{
+  --background:rgb(235, 226, 207);
+  margin-bottom: 16 px;
+  color: black;
+
 }
