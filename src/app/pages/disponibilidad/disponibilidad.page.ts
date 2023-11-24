@@ -26,16 +26,21 @@ navCtrl: any;
     private navCrtl: NavController
 
     ) { }
-    simularCargaMenu =()=>
-    this.loading= false;
+
+
+  simularCargaMenu =()=>
+  this.loading= false;
 
   ngOnInit() {
     setTimeout(this.simularCargaMenu,1000);
   }
+
   goBack() {
-    this.navCtrl.back();
+    this.navCrtl.back();
   }
+
   alerta(){
+
 }
 async agregarAuto(){
   try{

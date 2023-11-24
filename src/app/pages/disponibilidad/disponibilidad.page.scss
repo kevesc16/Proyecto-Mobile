@@ -2,17 +2,24 @@
   --background:transparent;
   color:black
 }
-.transparent-items ion-item {
-  --background: transparent; /* Establece el fondo como transparente */
+.box-skeleton{
+  height: 450px;
+  margin-top: 20px;
 }
-.transparent-items ion-label{
-  color:black;
-}
-  /* Estilo para el esqueleto de carga */
-  .box-skeleton {
-    height: 500px;
-    background: rgba(255, 255, 255, 0.1); /* Fondo semitransparente */
-    margin: 10px 0;
-  }
-  
 
+ion-item {
+  margin: 10px 0;
+  --background: #555843;
+  border-radius: 10px;
+  margin: 10px;
+  border: 1px solid #2e2e2e;
+  width: calc(100% - 20px);
+}
+
+ion-list{
+  --background:transparent
+}
+
+.color{
+  --background: #7b8062;
+}

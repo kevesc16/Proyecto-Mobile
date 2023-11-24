@@ -1,24 +1,16 @@
 <!--cabecera-->
 <ion-header>
   <ion-toolbar class="toolbarcolor">
-    <ion-buttons slot="start">
-      <ion-back-button class="iconbackcolor" (click)="goBack()">
-        <ion-icon name="chevron-back-circle-outline" ></ion-icon>
-      </ion-back-button>
-    </ion-buttons>
+    <ion-title class="text-center">Disponibilidad</ion-title>
+      <ion-buttons slot="start" (click)="goBack()">
+        <ion-icon name="chevron-back-circle-outline"></ion-icon>
+      </ion-buttons>
   </ion-toolbar>
 </ion-header>
 <!--cabecera termino-->
-<!--titulo disponibilidad-->
-<ion-content [fullscreen]="true" class="colorFondo">
-  <ion-header collapse="condense">
-    <ion-toolbar class="tituloD">
-      <ion-title size="large">Disponibilidad</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <!--titulo disponibilidad termino-->
+<ion-content [fullscreen]="false" class="colorFondo">
 <!--botones -->
-  <ng-container *ngIf="!loading">
+  <div class="center-container" *ngIf="!loading" >
     <ion-list>
       <ion-item>
         <ion-label position="floating">Patente</ion-label>
@@ -51,10 +43,10 @@
         <ion-input type="text" [(ngModel)]="costo"></ion-input>
       </ion-item>
 
-      <ion-button expand="full" class="btn" (click)="agregarAuto()" shape="round">Subir</ion-button>
+      <ion-button expand="full" class="color" (click)="agregarAuto()" shape="round">Subir</ion-button>
 
     </ion-list>
-  </ng-container>
+  </div>
 <!--botones termino-->
 <!--skeleton-->
   <ng-container *ngIf="loading">

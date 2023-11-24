@@ -43,11 +43,14 @@ ion-content.fondomenu {
 }
 
 .colorFondo{
-  --background:#555843;
+  --background: linear-gradient(#555843, rgb(6, 7, 3)) ;
 }
 .toolbarcolor{
   --background:#444636;
 }
 .iconbackcolor{
   --background:#fff;
+}
+.text-center {
+  text-align: center;
 }

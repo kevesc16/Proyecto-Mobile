@@ -3,16 +3,18 @@
   <ion-toolbar class="toolbarcolor">
     <ion-buttons slot="start">
       <ion-button class="iconbackcolor" (click)="goBack()">
-        <ion-icon name="chevron-back-circle-outline" ></ion-icon>
+        <ion-icon name="chevron-back-circle-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>Perfil</ion-title>
+    <ion-title class="text-center" >Perfil</ion-title>
+    <ion-buttons slot="end"></ion-buttons>
   </ion-toolbar>
 </ion-header>
 <!--termino cabecera-->
 <!--contenido-->
 <!--boton mas info-->
 <ion-content [fullscreen]="true" class="colorFondo">
+  <div></div>
   <ion-button expand="block" (click)="setOpen(true)" class="mostrarD">Mas info...
     <ion-icon [name]="infoIcon" slot="icon-only"></ion-icon>
   </ion-button>
@@ -20,25 +22,43 @@
     <ng-template>
     <!--termino boton mas info-->
       <!--boton-->
-      <ion-header>
-        <ion-toolbar>
+      <ion-header >
+        <ion-toolbar class="masToolbar">
           <ion-buttons slot="start">
-            <ion-button (click)="setOpen(false)">Cerrar</ion-button>
+            <ion-button class="iconbackcolor" (click)="setOpen(false)">
+              <ion-icon name="chevron-back-circle-outline"></ion-icon>
+            </ion-button>
+            <ion-title class="text-center">Datos de usuario</ion-title>
           </ion-buttons>
         </ion-toolbar>
       </ion-header>
       <!--boton termino-->
       <!--mas info-->
-      <ion-content class="ion-padding">
+      <ion-content class="sumergemeeee">
         <ion-card *ngFor="let i of usuario" class="perfil-card">
           <ion-item (click)="setOpen(false)">
             <div>
-              {{"Nombre: "+ ' ' +i.nombre}}<br>
-              {{"Correo: "+ ' ' +i.correo}}<br>
-              {{"Nacionalidad: "+ ' ' +i.nacionalidad}}<br>
-              {{"Comuna: "+ ' ' +i.comuna}}<br>
+              {{"Nombre: "+ ' ' +i.nombre}}
+            </div>
+          </ion-item>
+          <ion-item (click)="setOpen(false)">
+            <div>
+              {{"Correo: "+ ' ' +i.correo}}
+            </div>
+          </ion-item>
+          <ion-item (click)="setOpen(false)">
+            <div>
+              {{"Nacionalidad: "+ ' ' +i.nacionalidad}}
+            </div>
+          </ion-item>
+          <ion-item (click)="setOpen(false)">
+            <div>
+              {{"Comuna: "+ ' ' +i.comuna}}
+            </div>
+          </ion-item>
+          <ion-item (click)="setOpen(false)">
+            <div>
               {{"Region: "+ ' ' +i.region}}
-
             </div>
           </ion-item>
         </ion-card>
