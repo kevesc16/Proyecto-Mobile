@@ -1,28 +1,38 @@
 .skeleton{
-    height: 400px;
+  margin-top: 30px;
+  height: 200px;
 }
 .center-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh; /* O ajusta la altura según tus necesidades */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh; /* O ajusta la altura según tus necesidades */
+}
+
+
+.selectcolor {
+  --background: transparent;
+}
+
+.subtitu{
+font-size: 1.2em; /* Ajusta el tamaño de la fuente según sea necesario */
+margin-top: 5px; /* Ajusta la distancia superior según sea necesario */
+text-align: center;
+}
+
+ion-item {
+margin: 10px 0;
+--background: #555843;
+border-radius: 10px;
+margin: 10px;
+border: 1px solid #2e2e2e;
+width: calc(100% - 20px);
 }
 
 .color{
-    --background: #7b8062;
+  --background: #555843;
+  border-radius: 10px;
+  margin: 10px;
+  width: calc(100% - 20px);
 }
-
-.selectcolor {
-    --background: transparent;
-  
-    ion-item {
-      --background: transparent;
-      margin: 50px;
-      border-radius: 10px;
-      width: calc(100% - 20px);
-      ion-input {
-        --background: transparent;
-      }
-    }
-  }

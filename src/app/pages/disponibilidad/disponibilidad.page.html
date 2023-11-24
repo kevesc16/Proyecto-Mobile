@@ -8,9 +8,9 @@
   </ion-toolbar>
 </ion-header>
 <!--cabecera termino-->
-<ion-content [fullscreen]="true" class="colorFondo">
+<ion-content [fullscreen]="false" class="colorFondo">
 <!--botones -->
-  <ng-container *ngIf="!loading">
+  <div class="center-container" *ngIf="!loading" >
     <ion-list>
       <ion-item>
         <ion-label position="floating">Patente</ion-label>
@@ -43,10 +43,10 @@
         <ion-input type="text" [(ngModel)]="costo"></ion-input>
       </ion-item>
 
-      <ion-button expand="full" class="btn" (click)="agregarAuto()" shape="round">Subir</ion-button>
+      <ion-button expand="full" class="color" (click)="agregarAuto()" shape="round">Subir</ion-button>
 
     </ion-list>
-  </ng-container>
+  </div>
 <!--botones termino-->
 <!--skeleton-->
   <ng-container *ngIf="loading">
