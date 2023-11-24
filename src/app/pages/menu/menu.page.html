@@ -15,7 +15,7 @@
   <ion-menu contentId="main-content" class="colorFondo">
     <ion-header>
       <ion-toolbar class="toolbarcolor">
-        <ion-icon class="aloha" name="close-circle-outline" slot="end" (click)="cerrarMenu()"></ion-icon>
+        <ion-icon class="icon" name="close-circle-outline" slot="end" (click)="cerrarMenu()"></ion-icon>
         <ion-title>Menú</ion-title>
       </ion-toolbar>
     </ion-header>
@@ -63,7 +63,7 @@
   </div>
 </ng-container>
   <ng-container *ngIf="loading">
-  <div class="box-skeleton" *ngFor="let skeleton of [1,2]">
+  <div class="box-skeleton" *ngFor="let skeleton of [1]">
     <ion-skeleton-text
       class="skeleton"
       [animated]="true"

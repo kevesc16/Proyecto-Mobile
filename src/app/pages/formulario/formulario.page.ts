@@ -26,7 +26,7 @@ export class FormularioPage implements OnInit {
   ) { }
   simularCargaMenu =()=>
   this.loading= false;
-  
+
   goBack() {
     this.navCtrl.back();
   }
@@ -42,7 +42,7 @@ export class FormularioPage implements OnInit {
   }
 
   async alerta(){
-    let confirmar= await this.helper.showConfirm("Desea confirmar el viaje?","Shi","Ño")
+    let confirmar= await this.helper.showConfirm("Desea confirmar el viaje?","Si","No")
     if(confirmar== true){
       this.helper.showAlert("Su UberFruna ha sido contactado!","Aceptar")
       this.router.navigate(['/menu']);

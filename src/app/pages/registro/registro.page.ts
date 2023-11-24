@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
-import { NavController } from '@ionic/angular';
 import { Comuna } from 'src/app/models/comuna';
 import { Region } from 'src/app/models/region';
 import { HelperService } from 'src/app/service/-helper.service';
 import { FirestoreService } from 'src/app/service/firestore.service';
 import { LocationService } from 'src/app/service/location.service';
 import { StorageService } from 'src/app/service/storage.service';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-registro',
@@ -27,8 +27,8 @@ export class RegistroPage implements OnInit {
   nombreComuna: string = '';
   idRegion: number = 0;
   idComuna: number = 0;
-  regionSeleccionado: string = '';
-  comunaSeleccionada: string = '';
+  regionSeleccionado: number = 0;
+  comunaSeleccionada: number= 0;
 
   constructor(
     private helper: HelperService,
@@ -39,18 +39,16 @@ export class RegistroPage implements OnInit {
     private store: FirestoreService,
     private navCtrl: NavController
   ) {}
+  simularCargaMenu = () => (this.loading = false);
+
 
   goBack() {
     this.navCtrl.back();
   }
-
-  simularCargaMenu = () => (this.loading = false);
-
   async cargarRegion() {
     const req = await this.location.getRegion();
     this.regiones = req.data;
-    /*console.log('REGION', this.regiones);
-    console.log('COMUNA', this.comunas);*/
+
   }
 
   async cargarComuna() {
@@ -74,9 +72,11 @@ export class RegistroPage implements OnInit {
       this.router.navigateByUrl('login');
     }
   }
-  async obtenerRegion() {
-    this.nombreRegion = this.regiones[this.idRegion].nombre;
-    this.nombreComuna = this.comunas[this.idComuna].nombre;
+  async obtenerRegion()
+  {
+    this.nombreRegion= this.regiones.filter(e => e.id== this.regionSeleccionado)[0].nombre
+    this.nombreComuna= this.comunas.filter(e => e.id== this.comunaSeleccionada)[0].nombre
+
     console.log('region', this.nombreRegion);
     console.log('Comuna', this.nombreComuna);
   }
@@ -164,10 +164,6 @@ export class RegistroPage implements OnInit {
         await this.helper.showAlert('Debe ingresar una contraseña', 'Error');
       }
     }
-    this.nombreRegion='';
-    this.nombreComuna='';
-    this.nombre = '';
-    this.contrasena = '';
-    this.correo = '';
+
   }
 }

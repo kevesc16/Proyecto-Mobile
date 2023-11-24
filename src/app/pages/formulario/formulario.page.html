@@ -1,9 +1,9 @@
 <!--cabecera-->
 <ion-header [translucent]="true">
-  <ion-toolbar class="tituloF">
-    <ion-title style="color: red;">Solicitar Auto</ion-title>
-    <ion-buttons slot="start">
-      <ion-back-button id="back">Back</ion-back-button>
+  <ion-toolbar class="toolbarcolor">
+    <ion-title class="text-center">Solicitar Auto</ion-title>
+    <ion-buttons slot="start" (click)="goBack()">
+      <ion-icon name="chevron-back-circle-outline" class="icon"></ion-icon>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -18,15 +18,19 @@
   </ion-header>
   <!--termino cont-->
   <ion-content class="colorFondo">
-    <ion-item *ngFor="let i of autos">
-      <ion-card-content (click)="alerta()">
-        {{'Conductor:'+' '+ i.conductor }} <br />
+    <ion-card *ngFor="let i of autos" (click)="alerta()" class="vamoAlaIglesia">
+      <ion-card-header>
+        <ion-card-title class="vamoAlaIglesia">{{'Conductor:'+' '+ i.conductor }}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
         {{'Costo:'+' '+ i.costo }} <br />
         {{'Marca:'+' '+ i.marca }} <br />
         {{'Patente: '+' '+ i.patente }}
       </ion-card-content>
+    </ion-card>
       <hr>
-    </ion-item>
+
   </ion-content>
 
   <ng-container *ngIf="loading">

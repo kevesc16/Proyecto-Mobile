@@ -1,5 +1,5 @@
 .skeleton{
-    height: 400px;
+    height: 300px;
 }
 .center-container {
     display: flex;
@@ -15,7 +15,7 @@
 
 .selectcolor {
     --background: transparent;
-  
+
     ion-item {
       --background: transparent;
       margin: 50px;
@@ -26,3 +26,26 @@
       }
     }
   }
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh; /* O ajusta la altura según tus necesidades */
+    margin-top: 30px;
+  }
+  ion-label {
+    text-align: left; /* Alinea el texto al lado izquierdo */
+    width: 100%;
+    color: #ffffff; /* Cambia el color del texto del label */
+    font-weight: bold; /* Puedes ajustar la negrita según tus preferencias */
+    margin-top: 1px;
+  }
+  ion-item {
+    margin: 10px 0;
+    --background: #555843;
+    border-radius: 10px;
+    margin: 10px;
+    border: 1px solid #2e2e2e;
+    width: calc(100% - 20px);
+}

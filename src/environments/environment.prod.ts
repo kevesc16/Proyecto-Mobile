@@ -8,5 +8,6 @@ export const environment = {
     authDomain: 'kevito-f19b8.firebaseapp.com',
     messagingSenderId: '174271041762',
   },
-  production: true
+  production: true,
+  apiUrl:"https://dev.matiivilla.cl/duoc/location/"
 };

@@ -3,50 +3,44 @@
   <ion-toolbar class="toolbarcolor">
     <ion-title class="text-center">Disponibilidad</ion-title>
       <ion-buttons slot="start" (click)="goBack()">
-        <ion-icon name="chevron-back-circle-outline"></ion-icon>
+        <ion-icon name="chevron-back-circle-outline"class="icon"></ion-icon>
       </ion-buttons>
   </ion-toolbar>
 </ion-header>
 <!--cabecera termino-->
 <ion-content [fullscreen]="true" class="colorFondo">
-<!--botones -->
+  <div class="container">
   <ng-container *ngIf="!loading">
-    <ion-list>
       <ion-item>
         <ion-label position="floating">Patente</ion-label>
         <ion-input type="text" [(ngModel)]="patente"></ion-input>
       </ion-item>
-
       <ion-item>
         <ion-label position="floating">Marca</ion-label>
         <ion-input type="text" [(ngModel)]="marca"></ion-input>
       </ion-item>
-
       <ion-item>
         <ion-label position="floating">Destino</ion-label>
         <ion-input type="text" [(ngModel)]="destino"></ion-input>
       </ion-item>
-
       <ion-item>
         <ion-label position="floating">Cantidad de Pasajeros</ion-label>
         <ion-input type="text" [(ngModel)]="Cpasajeros"></ion-input>
       </ion-item>
-
       <ion-item>
         <ion-label position="floating">Conductor</ion-label>
         <ion-input type="text" [(ngModel)]="conductor"></ion-input>
       </ion-item>
-
-
       <ion-item>
         <ion-label position="floating">Costo</ion-label>
         <ion-input type="text" [(ngModel)]="costo"></ion-input>
       </ion-item>
 
-      <ion-button expand="full" class="btn" (click)="agregarAuto()" shape="round">Subir</ion-button>
+      <ion-button expand="full" class="color" (click)="agregarAuto()" shape="round">Subir</ion-button>
 
-    </ion-list>
+
   </ng-container>
+  </div>
 <!--botones termino-->
 <!--skeleton-->
   <ng-container *ngIf="loading">

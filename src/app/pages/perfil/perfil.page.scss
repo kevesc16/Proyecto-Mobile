@@ -1,5 +1,5 @@
 ion-button.mostrarD{
-  margin-top: 30%;
+  margin-top: 10%;
     --background: rgb(235, 226, 207);
     color: black; /* Cambia 'black' al color que desees para el texto */
 
@@ -13,4 +13,19 @@ ion-button.mostrarD{
   }
 .sumergemeeee{
   --background: linear-gradient(#555843, rgb(6, 7, 3)) ;
+}
+.vamoAlaIglesia{
+  --background: rgb(235, 226, 207);
+
+}
+ion-item {
+  margin: 10px 0;
+  --background: #555843;
+  border-radius: 10px;
+  margin: 10px;
+  border: 1px solid #2e2e2e;
+  width: calc(100% - 20px);
+}
+ion-card-title{
+  color: black;
 }

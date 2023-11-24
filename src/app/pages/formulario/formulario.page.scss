@@ -1,7 +1,4 @@
-ion-title {
-  text-align: center;
-  margin-top: 5rem; /* Ajusta el margen superior a tu preferencia */
-}
+
 
 ion-item {
   display: flex;
@@ -20,11 +17,15 @@ ion-card-content {
 #back{
   --color: white;
 }
-ion-toolbar{
-  --background:transparent;
+.vamoAlaIglesia{
+  --background: rgb(235, 226, 207);
+  color: black;
+  
 }
 
-ion-title {
-  --color: black;
 
+.custom-toolbar-size {
+  --min-height: 50px; /* Cambia este valor al tamaño que necesites */
+  --padding-top: 0px;
+  --padding-bottom: 0px;
 }
