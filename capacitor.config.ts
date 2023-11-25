@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'Proyecto-mobile',
+  appId: 'cl.UberFruna.app',
+  appName: 'Uber Fruna ',
   webDir: 'www',
   server: {
     androidScheme: 'https'
