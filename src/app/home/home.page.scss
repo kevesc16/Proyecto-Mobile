@@ -58,7 +58,7 @@ ion-content {
 }
 
 /* Estilos para los botones */
-ion-button.btn {
+ion-button.btnM {
   width: 200px;
   height: 80px;
   font-size: 24px;
@@ -74,4 +74,9 @@ ion-button.btn {
 }
 .skeleton{
   height: 300px;
+}
+.btnM{
+  --background:rgb(235, 226, 207);
+  --color: rgb(10, 10, 9);
+
 }

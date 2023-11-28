@@ -11,11 +11,7 @@
 <!--contenido-->
 <ion-content [fullscreen]="true" class="colorFondo">
   <!--cabecera cont-->
-  <ion-header collapse="condense">
-    <ion-toolbar class="toolbarcolor">
-      <ion-title size="medium" class="iconbackcolor">Autos Disponibles</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
   <!--termino cont-->
   <ion-content class="colorFondo">
     <ion-card *ngFor="let i of autos" (click)="alerta()" class="vamoAlaIglesia">

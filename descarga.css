@@ -1,0 +1,23 @@
+
+.colorFondo{
+  --background: linear-gradient(#555843, rgb(6, 7, 3)) ;
+}
+.toolbarcolor{
+  --background:#444636;
+}
+.iconbackcolor{
+  --background:#fff;
+}
+.text-center {
+  text-align: center;
+}
+.icon{
+  font-size: 30px;
+}
+.btnM{
+  --background:rgb(235, 226, 207);
+  --color: rgb(10, 10, 9);
+
+}
+*{font-family: 'Comfortaa', sans-serif !important;
+}

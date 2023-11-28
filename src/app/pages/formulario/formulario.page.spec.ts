@@ -5,13 +5,14 @@ describe('FormularioPage', () => {
   let component: FormularioPage;
   let fixture: ComponentFixture<FormularioPage>;
 
-  beforeEach(async(() => {
+  beforeEach(async() => {
     fixture = TestBed.createComponent(FormularioPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  }));
+  });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });

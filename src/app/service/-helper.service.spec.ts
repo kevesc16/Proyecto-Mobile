@@ -13,4 +13,9 @@ describe('HelperService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+  it('should create an alert with the correct message', async () => {
+    const testMessage = 'Test message';
+    const alert = await service.showAlert(testMessage,testMessage);
+    expect(alert.message).toBe(testMessage);
+  });
 });

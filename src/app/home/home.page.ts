@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { HelperService } from '../service/-helper.service';
 import { Router } from '@angular/router';
-import { AnimationController, IonCard } from '@ionic/angular';
+import { AnimationController, IonCard, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -11,20 +11,24 @@ import { AnimationController, IonCard } from '@ionic/angular';
 export class HomePage {
 
   private animation!: Animation;
-  
+
   constructor(
     private router:Router,
     private helper:HelperService,
-    private animationController:AnimationController
+    private animationController:AnimationController,
+    private navCrtl: NavController
   ) {}
-  
+  goBack() {
+    this.navCrtl.back();
+  }
+
   play(){
     this.animation.play();
   }
     pause() {
       this.animation.pause();
     }
-  
+
     stop() {
       this.animation.finish ();
     }
@@ -38,7 +42,7 @@ export class HomePage {
         .fromTo('opacity', '1', '0.2');
     }
   ngOninit(){
-    
+
   }
 
 }

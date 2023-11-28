@@ -24,23 +24,14 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 
 ion-content.fondomenu {
   --background:url(https://i.pinimg.com/736x/41/ce/ed/41ceed6b443531d18fb3d8793b660e3c.jpg);
 }
 
-@font-face {
-  font-family: "titulo";
-  src: url('/assets/fonts/Poppins-Black.ttf');
-}
-@font-face {
-  font-family: "subtitulo";
-  src: url('/assets/fonts/Poppins-Medium.ttf');
-}
-@font-face {
-  font-family: "texto";
-  src: url('/assets/fonts/Poppins-Light.ttf');
-}
+
+
 
 .colorFondo{
   --background: linear-gradient(#555843, rgb(6, 7, 3)) ;
@@ -56,4 +47,11 @@ ion-content.fondomenu {
 }
 .icon{
   font-size: 30px;
+}
+.btnM{
+  --background:rgb(235, 226, 207);
+  --color: rgb(10, 10, 9);
+
+}
+*{font-family: 'Comfortaa', sans-serif !important;
 }
