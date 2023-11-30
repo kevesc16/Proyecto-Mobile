@@ -45,7 +45,7 @@ export class FormularioPage implements OnInit {
     let confirmar= await this.helper.showConfirm("Desea confirmar el viaje?","Si","No")
     if(confirmar== true){
       this.helper.showAlert("Su UberFruna ha sido contactado!","Aceptar")
-      this.router.navigate(['/menu']);
+      this.router.navigate(['menu/:correo']);
     }
   }
 
